@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth&family=Lobster&family=Lobster+Two:wght@700&display=swap');
+
+.RegisterTitle{
+    font-family: 'Amaranth', sans-serif;
+    font-size: 35px;
+}
+.errorAlert{
+    margin-bottom: 0!important;
+    color: red;
+    font-family: 'Amaranth', sans-serif;
+}
+.ContainerWidth{
+    width: 75%;
+}
+@media screen and (max-width:600px) {
+    .ContainerWidth{
+        width: 100%;
+    }
+}
