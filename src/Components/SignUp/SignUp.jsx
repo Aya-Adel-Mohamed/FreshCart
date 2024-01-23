@@ -41,31 +41,31 @@ const SignUp = () => {
             <h3 className={`${styles.RegisterTitle} mb-4`}>Register Now</h3>
             <form onSubmit={formik.handleSubmit}>
                 <div className="form-group mb-3">
-                <label htmlFor='name'>name:</label>
+                <label htmlFor='name'>name</label>
                 <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} type="text" name='name' id='name' />
                 {formik.errors.name && formik.touched.name?  <div className={styles.errorAlert}>{formik.errors.name}</div>: null}
                 </div>
 
                <div className="fprm-group mb-3">
-                <label htmlFor='name'>email:</label>
+                <label htmlFor='name'>email</label>
                 <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} type="email" name='email' id='email' />
                 {formik.errors.email && formik.touched.email?  <div className={styles.errorAlert}>{formik.errors.email}</div>: null}
                </div>
 
                <div className="form-group mb-3">
-                <label htmlFor='name'>password:</label>
+                <label htmlFor='name'>password</label>
                 <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} type="password" name='password' id='password' />
                 {formik.errors.password && formik.touched.password?  <div className={styles.errorAlert}>{formik.errors.password}</div>: null}
                </div>
 
                <div className="form-group mb-3">
-                <label htmlFor='name'>rePassword:</label>
+                <label htmlFor='name'>rePassword</label>
                 <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.rePassword} type="password" name='rePassword' id='rePassword' />
                 {formik.errors.rePassword && formik.touched.rePassword?  <div className={styles.errorAlert}>{formik.errors.rePassword}</div>: null}
                </div>
 
                <div className="form-group mb-3">
-                <label htmlFor='name'>phone:</label>
+                <label htmlFor='name'>phone</label>
                 <input className='form-control' onBlur={formik.handleBlur}  onChange={formik.handleChange} value={formik.values.phone} type="tel" name='phone' id='phone' />
                 {formik.errors.phone && formik.touched.phone?  <div className={styles.errorAlert}>{formik.errors.phone}</div>: null}
                </div>
