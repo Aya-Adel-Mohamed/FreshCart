@@ -61,7 +61,7 @@ a:hover, a:focus{
     background-color: var(--light-color) !important;
 }
 .form-control:focus{
-    border-color: #0aad0a;
+    border-color: var(--main-color);
     box-shadow: 0 0 0 0.25rem rgba(10,173,10,.25);
 }
 .form-control{
@@ -75,5 +75,7 @@ a:hover, a:focus{
     border-radius: 7px;
 }
 label{
-    color: #7e7575;
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.5);
 }
