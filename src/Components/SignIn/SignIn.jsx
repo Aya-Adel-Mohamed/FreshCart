@@ -49,7 +49,7 @@ const SignIn = () => {
     return ( 
         <>
         <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
-            <h3 className={`${styles.RegisterTitle} mb-4`}>Login Now</h3>
+            <h3 className={`${styles.LoginTitle} mb-4`}>Login Now</h3>
             <form onSubmit={formik.handleSubmit}>
             {error != null?<div className='alert alert-danger'>{error}</div> :''}
                <div className="form-group mb-3">
