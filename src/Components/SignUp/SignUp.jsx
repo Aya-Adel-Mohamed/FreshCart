@@ -40,7 +40,7 @@ const SignUp = () => {
     let validationSchema = Yup.object({
         name:Yup.string().required('Name is Required').min(3, 'Name minlength is 3').max(10, 'Name maxlength is 10'),
         email:Yup.string().required('Email is Required').email('Email is invalid'),
-        password:Yup.string().required('Password is Required').matches(/^[A-Z][a-z0-9]{5,10}$/ , 'Password must start with uppercase ...'),
+        password:Yup.string().required('Password is Required').matches(/[A-Z][a-z0-9]{4,20}$/ , 'Password must start with uppercase ...'),
         rePassword:Yup.string().required('rePassword is Required').oneOf([Yup.ref('password')] , 'Password and rePassword does not match'),
         phone:Yup.string().required('Phone is Required').matches(/^01[0125][0-9]{8}$/ , 'Phone must be a valid number'),
     })

@@ -10,6 +10,9 @@ import Categories from './Components/Categories/Categories';
 import Brands from './Components/Brands/Brands';
 import MainLayout from './Components/MainLayout/MainLayout';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import ForgetPassword from './Components/ForgetPassword/ForgetPassword';
+import RestCode from './Components/ResetCode/ResetCode';
+import ResetPassword from './Components/ResetPassword/ResetPassword';
 function App() {
 
   let routers = createBrowserRouter([
@@ -22,6 +25,9 @@ function App() {
       {path:'brands',element:<Brands/>},
       {path:'signup',element:<SignUp/>},
       {path:'signin',element:<SignIn/>},
+      {path:'forgetPassword',element:<ForgetPassword/>},
+      {path:'resetCode',element:<RestCode/>},
+      {path:'resetPassword',element:<ResetPassword/>},
       {path:'*',element:<NotFound/>},
 
     ]}
