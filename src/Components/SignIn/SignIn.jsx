@@ -52,7 +52,7 @@ const SignIn = ({saveUserData}) => {
             <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
                 <h3 className={`${styles.LoginTitle} mb-4`}>Login Now</h3>
                 <form onSubmit={formik.handleSubmit}>
-                    {error != null ? <div className='alert alert-danger'>{error}</div> : ''}
+                    {error != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{error}</div> : ''}
                     <div className="form-group mb-3">
                         <label htmlFor='email'>email</label>
                         <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} type="email" name='email' id='email' />

@@ -62,7 +62,7 @@ const SignUp = () => {
         <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
             <h3 className={`${styles.RegisterTitle} mb-4`}>Register Now</h3>
             <form onSubmit={formik.handleSubmit}>
-            {error != null?<div className='alert alert-danger'>{error}</div> :''}
+            {error != null?<div className={`alert alert-danger mt-2 ${styles.alert}`}>{error}</div> :''}
                 <div className="form-group mb-3">
                 <label htmlFor='name'>name</label>
                 <input className='form-control ' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} type="text" name='name' id='name' />

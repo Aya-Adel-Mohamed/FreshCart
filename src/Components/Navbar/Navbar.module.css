@@ -6,3 +6,6 @@
 .iconFont{
     font-size: 17px;
 }
+.spanLink:hover,.spanLink:focus{
+    color: rgba(10,173,10,0.6)!important;
+}

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 const Navbar = ({ userData, logOut }) => {
+    console.log(userData);
     const navLink = [
         { name: 'Home', link: '/' },
         { name: 'Cart', link: 'cart' },
@@ -59,11 +60,13 @@ const Navbar = ({ userData, logOut }) => {
                                         )}
 
                                     </li>
-                            
-                                        <li className="nav-item d-flex align-items-center">
-                                            <span className={`${styles.navLinkFont} nav-link`} onClick={logOut}>SignOut</span>
-                                        </li>
-                               
+                                    <li className="nav-item d-flex align-items-center">
+                                        <span className={`${styles.navLinkFont} nav-link ${styles.spanLink}`} onClick={logOut}>SignOut</span>
+                                    </li>
+                                    <li className="nav-item d-flex align-items-center ms-4">
+                                    <i className="fa-solid fa-user"></i>
+                                        <Link className={`${styles.navLinkFont} nav-link`}>{userData.name}</Link>
+                                    </li>
 
                                 </>
                             }

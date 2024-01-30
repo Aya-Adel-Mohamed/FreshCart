@@ -25,6 +25,10 @@
 .textColor{
     color:#0aad0a;
 }
+.alert{
+    padding: 6px 12px;
+    font-family: 'Amaranth','sans-serif';
+}
 @media screen and (max-width:600px) {
     .ContainerWidth{
         width: 100%;

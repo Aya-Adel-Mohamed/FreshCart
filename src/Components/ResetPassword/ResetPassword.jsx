@@ -48,7 +48,7 @@ export default function ResetPassword() {
     <>
       <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
         <h3 className={`${styles.ResetPasswordTitle} mb-4`}>Reset Password</h3>
-       {error != null ? <div className='alert alert-danger'>{error}</div>: ""}
+       {error != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{error}</div>: ""}
 
       <form  onSubmit={formik.handleSubmit}>
        <div className="form-group mb-3">
