@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './SignIn.module.css';
 
-const SignIn = () => {
+const SignIn = ({saveUserData}) => {
     let navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null)
@@ -26,6 +26,8 @@ const SignIn = () => {
             )
 
         if (data.message === 'success') {
+            localStorage.setItem('userToken', data.token)
+            saveUserData();
             setLoading(false);
             navigate('/')
         }
