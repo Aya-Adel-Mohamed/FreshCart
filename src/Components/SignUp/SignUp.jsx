@@ -65,7 +65,7 @@ const SignUp = () => {
             {error != null?<div className='alert alert-danger'>{error}</div> :''}
                 <div className="form-group mb-3">
                 <label htmlFor='name'>name</label>
-                <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} type="text" name='name' id='name' />
+                <input className='form-control ' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} type="text" name='name' id='name' />
                 {formik.errors.name && formik.touched.name?  <div className={styles.errorAlert}>{formik.errors.name}</div>: null}
                 </div>
 
@@ -106,7 +106,6 @@ const SignUp = () => {
                }
             </form>
         </div>
-        
         </>
      );
 }
