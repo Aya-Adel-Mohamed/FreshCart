@@ -16,6 +16,7 @@
 }
 .ContainerWidth{
     width: 75%;
+    margin-block: 76px;
 }
 .fontFami{
     font-family: 'Amaranth', sans-serif;
@@ -29,8 +30,9 @@
     padding: 6px 12px;
     font-family: 'Amaranth','sans-serif';
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width:700px) {
     .ContainerWidth{
         width: 100%;
+        margin-block: 0;
     }
 }

@@ -66,7 +66,7 @@ const SignIn = ({saveUserData}) => {
                         </div>
                         {formik.errors.password && formik.touched.password ? <div className={styles.errorAlert}>{formik.errors.password}</div> : null}
                     </div>
-                    <div className="d-flex mb-3">
+                    <div className="d-flex mb-3 flex-wrap">
                     <span className={styles.fontFami}>Don't have an account?
                     <Link className={`${styles.textColor} fs-6`} to={"/signup"}><strong> Create Account</strong>
                     </Link></span>
