@@ -3,3 +3,8 @@
     text-align: center;
     margin-block: 30px;
 }
+@media screen and (max-width:900px){
+    .image{
+        width: 85%;
+    }
+}
