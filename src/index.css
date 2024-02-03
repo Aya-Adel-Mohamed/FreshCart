@@ -45,6 +45,14 @@ a:hover, a:focus{
     transform: translateY(100%);
     opacity: 0;
 }
+.productDetails{
+    color: black!important;
+    text-decoration: none;
+}
+a:hover, a:focus{
+    color: black!important;
+    text-decoration: none;
+}
 .product:hover .btn 
 {
     opacity: 1;
