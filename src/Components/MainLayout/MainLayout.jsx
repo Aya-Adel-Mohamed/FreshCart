@@ -8,7 +8,7 @@ const MainLayout = ({userData,logOut}) => {
     return (
         <>
         <Navbar userData={userData} logOut={logOut}/>
-        <div className="container">
+        <div className="container px-5 px-md-5 px-lg-0">
             <Outlet></Outlet>
         </div>
         <Footer/>

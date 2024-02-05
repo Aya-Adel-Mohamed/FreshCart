@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth&family=Lobster&family=Lobster+Two:wght@700&display=swap');
+
+.productName{
+    font-family: 'Amaranth', sans-serif;
+    font-size: 35px;
+
+}
+.discount{
+  
+    top: 0;
+    right: 0;
+    z-index: 100000;
+    position: absolute;
+    font-family: 'Amaranth', sans-serif;
+    color: white;
+    background-color:#0aae0a;
+    padding: 10px 20px;
+}
+.brandImg{
+    width: 20%;
+    margin-left: -12px;
+}
+.brandFont{
+    font-size: 20px;
+}
+.brandText{
+    font-size: 16px;
+
+}

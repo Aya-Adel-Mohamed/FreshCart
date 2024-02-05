@@ -14,6 +14,7 @@ import SignUp from './Components/SignUp/SignUp';
 import ForgetPassword from './Components/ForgetPassword/ForgetPassword';
 import RestCode from './Components/ResetCode/ResetCode';
 import ResetPassword from './Components/ResetPassword/ResetPassword';
+import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
 import './App.css';
 
 function App() {
@@ -55,6 +56,7 @@ function logOut(){
       {path:'cart',element:<ProtectedRoute><Cart/></ProtectedRoute>},
       {path:'categories',element:<ProtectedRoute><Categories/></ProtectedRoute>},
       {path:'brands',element:<ProtectedRoute><Brands/></ProtectedRoute>},
+      {path:'productdetails/:id',element:<ProtectedRoute><ProductDetails/></ProtectedRoute>},
       {path:'signup',element:<SignUp/>},
       {path:'signin',element:<SignIn saveUserData={saveUserData}/>},
       {path:'forgetPassword',element:<ForgetPassword/>},

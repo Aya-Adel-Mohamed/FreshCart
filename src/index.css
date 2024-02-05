@@ -11,7 +11,7 @@
     --rating-color:#ffc908;
 }
 .font{
-    font-family: 'Amaranth', sans-serif;
+    font-family: 'Amaranth', sans-serif!important;
 
 }
 body{
@@ -20,6 +20,11 @@ body{
 .rating-color
 {
     color: var(--rating-color);
+}
+.h4{
+  font-size: 16px;
+  text-align: center;
+
 }
 .cursor-pointer
 {
@@ -93,6 +98,24 @@ label{
     font-size: 17px;
     font-weight: 600;
     color: rgba(0,0,0,0.5);
+}
+.w-105{
+  width: 105%;
+}
+.gap{
+  gap: 10px;
+}
+.text-muted{
+  color: rgb(139, 139, 139)!important;
+}
+.height{
+  height: 51vh;
+}
+.gapSlider{
+  gap: 26px;
+}
+.gapSlider2{
+  gap:27px;
 }
 /*****************/
 :root {
@@ -274,5 +297,13 @@ label{
 
   50% {
     stroke-dashoffset: 40.84;
+  }
+}
+@media screen and (max-width:1400px) {
+  .mediaLarge{
+    display: none!important;
+  }
+  .mediaSmall{
+    display: block!important;
   }
 }
