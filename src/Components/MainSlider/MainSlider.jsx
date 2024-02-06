@@ -22,7 +22,7 @@ const MainSlider = () => {
   };
   return (
     <>
-<div className="height mediaLarge mt-5 ps-4">
+<div className="height mediaLarge mt-5 ps-3">
 <Slider {...settings}>
     <div className="row d-flex">
     <div className="col-7 ">

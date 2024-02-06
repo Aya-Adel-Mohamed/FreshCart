@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth&family=Lobster&family=Lobster+Two:wght@700&display=swap');
+
+.categoryContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 14px;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+   transition: all 0.5s ease;
+}
+.categoryContainer span{
+    font-family: 'Amaranth', sans-serif;
+   color:#fff;
+   background-color: #0a0;
+   position: absolute;
+   z-index: 99;
+   top:0;
+   font-size: 18px;
+   right: -100%;
+   padding: 0px 10px;
+   transition: all 0.5s ease;
+   opacity: 0.5;
+   transition-delay: 0.5s;
+}
+.container:hover .categoryContainer span{
+    right: 0;
+    opacity: 1;
+}
+.categoryContainer img{
+    transition: all 0.5s ease;
+}
+.container:hover .categoryContainer img{
+    scale: 1.05; 
+}
+/* .layer{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+    
+
+} */

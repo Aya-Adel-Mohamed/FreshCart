@@ -84,8 +84,8 @@ const CategorySlider = () => {
         <Slider {...settings}>      
            {categories?.map((category,index)=>
 
-       <div key={index} >
-       <img src={category.image} height={230} className='w-100' alt="" />
+       <div key={index}>
+       <img src={category.image} height={220} className='w-100' alt="" />
            <h2 className='h4 pt-2 font'>{category.name}</h2>
        </div>
    
