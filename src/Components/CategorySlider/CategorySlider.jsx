@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import Slider from "react-slick";
+import { useQuery } from 'react-query';
+import { getCategories } from '../../apis/categories.api';
 import styles from './CategorySlider.module.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import axios from 'axios';
 
 const CategorySlider = () => {
-    const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(false);
-    async function getCategories() {
-        setLoading(true);
-        let { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/categories`)
-        setCategories(data.data)
-        setLoading(false);
-    }
-    useEffect(() => {
-        getCategories();
-    }, [])
+
+  const { data: categories} = useQuery({
+    queryKey:["categoriesSlider"],
+    queryFn: ({ signal }) => getCategories(signal),
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    onError: (err) =>{
+        console.log(err);
+    },
+    keepPreviousData: true
+})
+
     var settings = {
         infinite: true,
-        speed: 500,
         slidesToShow: 7,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 2000,
+        speed: 500,
         autoplaySpeed: 2000,
         cssEase: "linear",
         
@@ -83,12 +84,10 @@ const CategorySlider = () => {
         <h4 className='mt-5 fw-semibold mb-3'>Shop Popular Categories</h4>
         <Slider {...settings}>      
            {categories?.map((category,index)=>
-
-       <div key={index}>
-       <img src={category.image} height={220} className='w-100' alt="" />
+           <div key={index}>
+            <img src={category.image} height={220} className={`${styles.image} w-100`} alt="" />
            <h2 className='h4 pt-2 font'>{category.name}</h2>
-       </div>
-   
+           </div>
            )}
         </Slider>
         </>

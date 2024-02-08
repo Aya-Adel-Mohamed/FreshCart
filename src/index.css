@@ -40,6 +40,10 @@ a:hover, a:focus{
     color: rgba(10,173,10,0.6)!important;
     text-decoration: none;
 }
+.product{
+  overflow: hidden;
+
+}
 .product:hover
 {
     box-shadow: var(--shadow);
@@ -61,6 +65,7 @@ a:hover, a:focus{
     color: black!important;
     text-decoration: none;
 }
+
 .product:hover .btn 
 {
     opacity: 1;

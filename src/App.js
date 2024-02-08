@@ -16,6 +16,10 @@ import RestCode from './Components/ResetCode/ResetCode';
 import ResetPassword from './Components/ResetPassword/ResetPassword';
 import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
 import './App.css';
+import ProductsOfCategories from './Components/ProductsOfCategories/ProductsOfCategories.jsx';
+import ProductBrands from './Components/ProductBrands/ProductBrands.jsx';
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from './apis/query.clint.js';
 
 function App() {
 const [userData,setUserData] = useState(null);
@@ -57,6 +61,8 @@ function logOut(){
       {path:'categories',element:<ProtectedRoute><Categories/></ProtectedRoute>},
       {path:'brands',element:<ProtectedRoute><Brands/></ProtectedRoute>},
       {path:'productdetails/:id',element:<ProtectedRoute><ProductDetails/></ProtectedRoute>},
+      {path:'categories/productcategories/:slug',element:<ProtectedRoute><ProductsOfCategories/></ProtectedRoute>},
+      {path:'brands/productbrands/:brandSlug',element:<ProtectedRoute><ProductBrands/></ProtectedRoute>},
       {path:'signup',element:<SignUp/>},
       {path:'signin',element:<SignIn saveUserData={saveUserData}/>},
       {path:'forgetPassword',element:<ForgetPassword/>},
@@ -68,7 +74,9 @@ function logOut(){
   ])
   return (
     <>
-    <RouterProvider router={routers}/>
+    <QueryClientProvider client={queryClient} >
+      <RouterProvider router={routers}/>
+    </QueryClientProvider>
     </>
   );
 }

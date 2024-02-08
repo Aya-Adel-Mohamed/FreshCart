@@ -1,16 +1,15 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Loading from '../Loading/Loading';
+import { useQuery } from 'react-query';
+import { getProductDetails } from '../../apis/productDetails.api';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import styles from './ProductDetails.module.css';
+
 const ProductDetails = () => {
     let params = useParams();
-    const [product, setProduct] = useState([]);
-    const [loading, setLoading] = useState(false);
-
     var settings = {
         dots: true,
         infinite: true,
@@ -19,22 +18,20 @@ const ProductDetails = () => {
         slidesToScroll: 1,
     };
 
-    async function getProductDetails(id) {
-        setLoading(true);
-        let { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
-        setProduct(data.data);
+    const { isFetching , data: product} = useQuery({
+        queryKey:["productDetails"],
+        queryFn: ({ signal }) => getProductDetails(signal, params.id),
+        refetchOnMount:true,
+        refetchOnWindowFocus:false,
+        onError: (err) =>{
+            console.log(err);
+        },
+        keepPreviousData: true
+    });
 
-        setLoading(false);
-    }
-    
-    useEffect(() => {
-        getProductDetails(params.id);
-    }, []);
-    console.log(product);
     return (
-
         <>
-            {loading ? <Loading /> : <>
+            {isFetching ? <Loading /> : <>
                 <div className="row my-5 justify-content-center">
                     <div className="col-lg-4">
                         {product?.priceAfterDiscount?
@@ -47,9 +44,9 @@ const ProductDetails = () => {
                         {product?.images?.length > 1 ? <>
                             <Slider {...settings}>
                                 {product?.images?.map((img, index) =>
-                                    <img src={img} className='w-100' key={index} />
+                                    <img src={img} className='w-100' key={index} alt=''/>
                                 )}
-                            </Slider></> : <img src={product.images} className='w-100' />
+                            </Slider></> : <img src={product.images} className='w-100' alt='' />
                         }
                     </div>    
                     :
@@ -57,9 +54,9 @@ const ProductDetails = () => {
                     {product?.images?.length > 1 ? <>
                         <Slider {...settings}>
                             {product?.images?.map((img, index) =>
-                                <img src={img} className='w-100' key={index} />
+                                <img src={img} className='w-100' key={index} alt='' />
                             )}
-                        </Slider></> : <img src={product.images} className='w-100' />
+                        </Slider></> : <img src={product.images} className='w-100' alt='' />
                     }
                  </>
                     }
