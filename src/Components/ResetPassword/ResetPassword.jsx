@@ -1,35 +1,27 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from './ResetPassword.module.css';
+import { useMutation } from "react-query";
+import { changePassword } from "../../apis/resetPassword.api";
 
 
 export default function ResetPassword() {
   let navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [passwordShown, setPasswordShown] = useState(false);
 
   const togglePasswordResetVisiblity = () => {
       setPasswordShown(passwordShown ? false : true);
   }
 
-  async function changePassword(values) {
-    setLoading(true);
-    let { data } = await axios.put(`https://ecommerce.routemisr.com/api/v1/auth/resetPassword`,values)
-      .catch((err) => {
-        setError(err.response.data.message);
-        setLoading(false)
-      });
-
-    if (data.token) {
-      setLoading(false)
+  const { isLoading, mutate, error } = useMutation({
+    mutationFn: changePassword,
+    onSuccess: (data, values) => {
       navigate("/signin");
-    }
-  }
-
+    },
+})
+const resError = error ? error.response.data.message : null;
   const validationSchema = yup.object({
     email: yup.string().email("email not vaild").required("email is required"),
     newPassword: yup.string().matches(/[A-Z][a-z0-9]{4,20}$/, "not valid").required("password is required"),
@@ -41,14 +33,16 @@ export default function ResetPassword() {
       newPassword: "",
     },
     validationSchema,
-    onSubmit: changePassword
+    onSubmit: (values) => {
+      mutate(values)
+  }
   });
 
   return (
     <>
       <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
         <h3 className={`${styles.ResetPasswordTitle} mb-4`}>Reset Password</h3>
-       {error != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{error}</div>: ""}
+       {resError != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{resError}</div>: ""}
 
       <form  onSubmit={formik.handleSubmit}>
        <div className="form-group mb-3">
@@ -69,7 +63,7 @@ export default function ResetPassword() {
           <div className={styles.errorAlert}>{formik.errors.newPassword}</div>
          : null}
         </div>
-        {loading?
+        {isLoading?
         <button type='button' className='btn bg-main text-white d-flex ms-auto py-2 px-2'><i className='fas fa-spinner fa-spin'></i></button>
         : 
         <button disabled={!(formik.isValid && formik.dirty)} type="submit" className="btn bg-main text-white d-flex ms-auto">Reset Password</button>

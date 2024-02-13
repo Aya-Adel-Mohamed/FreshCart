@@ -1,29 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./ForgetPassword.module.css";
+import { useMutation } from "react-query";
+import { sendEmail } from "../../apis/forgetPassword.api";
 
 const ForgetPassword = () => {
     let navigate = useNavigate()
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-    async function sendEmail(values) {
-        setLoading(true);
-        let { data } = await axios.post(`https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords`,values)
-        .catch((err) => {
-            setError(err.response.data.message);
-            setLoading(false)
-
-        });
-
-        if (data.statusMsg === "success") {
-            setLoading(false);
+    const { isLoading, mutate, error } = useMutation({
+        mutationFn: sendEmail,
+        onSuccess: (data, values) => {
             navigate("/resetCode");
-        }
-    }
+        },
+    })
+    
+    const resError = error ? error.response.data.message : null;
 
     let validationSchema = yup.object({
         email: yup.string().email("wrong email").required("email is required"),
@@ -34,14 +26,16 @@ const ForgetPassword = () => {
             email: "",
         },
         validationSchema,
-        onSubmit: sendEmail,
+        onSubmit: (values) => {
+            mutate(values)
+        }
     });
 
     return (
         <>
             <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
                 <h3 className={`${styles.ForgetTitle} mb-4`}>Forget Password</h3>
-                {error != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{error}</div> : ""}
+                {resError != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{resError}</div> : ""}
 
                 <form onSubmit={formik.handleSubmit}>
                 <div className="form-group mb-3">
@@ -50,7 +44,7 @@ const ForgetPassword = () => {
                     {formik.errors.email && formik.touched.email ?<div className={styles.errorAlert}>{formik.errors.email}</div> : null}
                 </div>
 
-                {loading?
+                {isLoading?
                     <button type='button' className='btn bg-main text-white d-flex ms-auto py-2 px-2'><i className='fas fa-spinner fa-spin'></i></button>
                     :
                     <button disabled={!(formik.isValid && formik.dirty)} type="submit" className="btn bg-main text-white mt-3 d-flex ms-auto">send</button>
