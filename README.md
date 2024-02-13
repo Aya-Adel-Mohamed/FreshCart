@@ -21,6 +21,10 @@
 ## Product Details
 ![FreshCart product](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/fd3bcc26-fe98-47a1-89e7-d6a466cead9e)
 
+## Brands
+![Brands](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/bf395f0e-bd4d-4fb4-b393-516c55bcb29b)
+
+
 
 
 
