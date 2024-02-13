@@ -85,11 +85,11 @@ const CategorySlider = () => {
         <h4 className='mt-5 fw-semibold mb-3'>Shop Popular Categories</h4>
         <Slider {...settings}>      
            {categories?.map((category,index)=>
-               <Link className='text-decoration-none text-black' to={`categories/productcategories/${category.slug}`}>
-           <div key={index}>
+               <Link className='text-decoration-none text-black' to={`categories/productcategories/${category.slug}`} key={index}>
+          
             <img src={category.image} height={220} className={`${styles.image} w-100`} alt="" />
            <h2 className='h4 pt-2 font'>{category.name}</h2>
-           </div>
+       
                </Link>
            )}
         </Slider>
