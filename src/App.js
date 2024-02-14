@@ -3,6 +3,7 @@ import { createBrowserRouter,Navigate,RouterProvider } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './apis/query.clint.js';
 import { jwtDecode } from 'jwt-decode';
+import { Toaster } from 'react-hot-toast';
 import MainLayout from './Components/MainLayout/MainLayout';
 import Home from './Components/Home/Home';
 import Products from './Components/Products/Products';
@@ -18,6 +19,7 @@ import ResetPassword from './Components/ResetPassword/ResetPassword';
 import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
 import ProductsOfCategories from './Components/ProductsOfCategories/ProductsOfCategories.jsx';
 import ProductBrands from './Components/ProductBrands/ProductBrands.jsx';
+import CartContextProvider from './Context/CartContext.js';
 import './App.css';
 
 function App() {
@@ -70,7 +72,12 @@ function logOut(){
   return (
     <>
     <QueryClientProvider client={queryClient} >
+      <CartContextProvider>
       <RouterProvider router={routers}/>
+      </CartContextProvider>
+      <Toaster   position="bottom-left"
+  reverseOrder={false}
+  />
     </QueryClientProvider>
     </>
   );

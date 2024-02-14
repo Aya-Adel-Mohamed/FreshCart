@@ -13,12 +13,7 @@ const Navbar = ({ userData, logOut }) => {
         { name: 'Brands', link: 'brands' }
     ]
     const iconName = [
-        { className: 'fab mx-2 fa-instagram' },
-        { className: 'fab mx-2 fa-facebook' },
-        { className: 'fab mx-2 fa-tiktok' },
-        { className: 'fab mx-2 fa-twitter' },
-        { className: 'fab mx-2 fa-linkedin' },
-        { className: 'fab mx-2 fa-youtube' },
+        { className: 'fa-solid fa-heart',name: 'WishList' },
     ]
     return (
         <>
@@ -36,13 +31,11 @@ const Navbar = ({ userData, logOut }) => {
                                         <Link className={`${styles.navLinkFont} nav-link`} to={nav.link}>{nav.name}</Link>
                                     </li>
                                 )}
-
                             </ul>
                         </> : null
                         }
 
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-
                             {userData === null ?
                                 <>
                                     <li className="nav-item d-flex align-items-center">
@@ -54,20 +47,19 @@ const Navbar = ({ userData, logOut }) => {
 
                                 </> :
                                 <>
-                                    <li className="nav-item d-flex align-items-center me-3">
-                                        {iconName?.map((icon, index) =>
-                                            <i className={`${icon.className} ${styles.iconFont}`} key={index}></i>
-                                        )}
-
+                                    {iconName?.map((icon, index) =>
+                                    <li className="nav-item d-flex align-items-center me-3" key={index}>
+                                     <i className={`${icon.className} ${styles.iconFont}`}></i>
+                                     <Link className={`${styles.navLinkFont} nav-link`} to="wishlist">{icon.name}</Link>
                                     </li>
-                                    <li className="nav-item d-flex align-items-center">
-                                        <span className={`${styles.navLinkFont} nav-link ${styles.spanLink}`} onClick={logOut}>SignOut</span>
-                                    </li>
-                                    <li className="nav-item d-flex align-items-center ms-4">
+                                    )}
+                                    <li className="nav-item d-flex align-items-center ms-2">
                                     <i className="fa-solid fa-user"></i>
                                         <Link className={`${styles.navLinkFont} nav-link`}>{userData.name}</Link>
                                     </li>
-
+                                    <li className="nav-item d-flex align-items-center ms-2">
+                                        <span className={`${styles.navLinkFont} nav-link`} onClick={logOut}>SignOut</span>
+                                    </li>
                                 </>
                             }
                         </ul>
