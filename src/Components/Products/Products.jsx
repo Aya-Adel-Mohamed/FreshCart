@@ -1,12 +1,16 @@
 import React from "react";
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
+import { Helmet } from "react-helmet";
 
 const Products = () => {
-    return ( 
+    return (
         <>
-        <FeaturedProducts/>
+            <Helmet>
+                <title>FreshCart | Products</title>
+            </Helmet>
+            <FeaturedProducts />
         </>
     );
 }
- 
+
 export default Products

@@ -4,6 +4,7 @@ import Loading from '../Loading/Loading.jsx';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getCategories } from '../../apis/categories.api.js';
+import { Helmet } from 'react-helmet';
 
 
 const Categories = () => {
@@ -21,6 +22,9 @@ const Categories = () => {
 
     return ( 
         <>
+           <Helmet>
+                <title>FreshCart | Categories</title>
+            </Helmet>
         {isFetching?<Loading/>:
         <>
         <div className="row mt-5 justify-content-center">

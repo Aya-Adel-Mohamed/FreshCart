@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./ForgetPassword.module.css";
 import { useMutation } from "react-query";
 import { sendEmail } from "../../apis/forgetPassword.api";
+import { Helmet } from "react-helmet";
 
 const ForgetPassword = () => {
     let navigate = useNavigate()
@@ -33,6 +34,9 @@ const ForgetPassword = () => {
 
     return (
         <>
+           <Helmet>
+                <title>FreshCart | ForgetPassword</title>
+            </Helmet>
             <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
                 <h3 className={`${styles.ForgetTitle} mb-4`}>Forget Password</h3>
                 {resError != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{resError}</div> : ""}

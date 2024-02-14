@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './SignIn.module.css';
 import { useMutation } from 'react-query';
 import { handleLogin } from '../../apis/signIn.api';
+import { Helmet } from 'react-helmet';
 
 
 const SignIn = ({ saveUserData }) => {
@@ -43,6 +44,9 @@ const SignIn = ({ saveUserData }) => {
 
     return (
         <>
+        <Helmet>
+            <title>FreshCart | signIn</title>
+        </Helmet>
             <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
                 <h3 className={`${styles.LoginTitle} mb-4`}>Login Now</h3>
                 <form onSubmit={formik.handleSubmit}>

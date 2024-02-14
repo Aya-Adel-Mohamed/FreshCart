@@ -4,6 +4,7 @@ import Loading from '../Loading/Loading.jsx';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getBrands } from '../../apis/brands.api.js';
+import { Helmet } from 'react-helmet';
 
 
 const Brands = () => {
@@ -21,6 +22,9 @@ const Brands = () => {
 
     return ( 
         <>
+           <Helmet>
+                <title>FreshCart | Brands</title>
+            </Helmet>
         {isFetching?<Loading/>:
         <>
         <div className="row my-5">

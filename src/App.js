@@ -1,9 +1,10 @@
 import { useState,useEffect } from 'react';
 import { createBrowserRouter,Navigate,RouterProvider } from 'react-router-dom';
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from './apis/query.clint.js';
 import { jwtDecode } from 'jwt-decode';
 import MainLayout from './Components/MainLayout/MainLayout';
 import Home from './Components/Home/Home';
-import About from './Components/About/About';
 import Products from './Components/Products/Products';
 import Cart from './Components/Cart/Cart';
 import NotFound from './Components/NotFound/NotFound';
@@ -15,11 +16,9 @@ import ForgetPassword from './Components/ForgetPassword/ForgetPassword';
 import RestCode from './Components/ResetCode/ResetCode';
 import ResetPassword from './Components/ResetPassword/ResetPassword';
 import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
-import './App.css';
 import ProductsOfCategories from './Components/ProductsOfCategories/ProductsOfCategories.jsx';
 import ProductBrands from './Components/ProductBrands/ProductBrands.jsx';
-import { QueryClientProvider } from 'react-query';
-import { queryClient } from './apis/query.clint.js';
+import './App.css';
 
 function App() {
 const [userData,setUserData] = useState(null);
@@ -27,9 +26,7 @@ const [userData,setUserData] = useState(null);
 function saveUserData (){
   let encodedToken = localStorage.getItem('userToken');
   let decodedToken = jwtDecode(encodedToken);
-
   setUserData(decodedToken);
-
 }
 
 useEffect(()=>{
@@ -55,7 +52,6 @@ function logOut(){
   let routers = createBrowserRouter([
     {path:'/',element:<MainLayout userData={userData} logOut={logOut}/>,children:[
       {index:true,element:<ProtectedRoute><Home/></ProtectedRoute>},
-      {path:'about',element:<ProtectedRoute><About/></ProtectedRoute>},
       {path:'products',element:<ProtectedRoute><Products/></ProtectedRoute>},
       {path:'cart',element:<ProtectedRoute><Cart/></ProtectedRoute>},
       {path:'categories',element:<ProtectedRoute><Categories/></ProtectedRoute>},
@@ -69,7 +65,6 @@ function logOut(){
       {path:'resetCode',element:<RestCode/>},
       {path:'resetPassword',element:<ResetPassword/>},
       {path:'*',element:<NotFound/>},
-
     ]}
   ])
   return (
