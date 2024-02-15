@@ -7,14 +7,11 @@ const Navbar = ({ userData, logOut }) => {
     console.log(userData);
     const navLink = [
         { name: 'Home', link: '/' },
-        { name: 'Cart', link: 'cart' },
         { name: 'Products', link: 'products' },
         { name: 'Categories', link: 'categories' },
         { name: 'Brands', link: 'brands' }
     ]
-    const iconName = [
-        { className: 'fa-solid fa-heart',name: 'WishList' },
-    ]
+
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary px-xl-5 py-0 py-3">
@@ -47,14 +44,24 @@ const Navbar = ({ userData, logOut }) => {
 
                                 </> :
                                 <>
-                                    {iconName?.map((icon, index) =>
-                                    <li className="nav-item d-flex align-items-center me-3" key={index}>
-                                     <i className={`${icon.className} ${styles.iconFont}`}></i>
-                                     <Link className={`${styles.navLinkFont} nav-link`} to="wishlist">{icon.name}</Link>
+                                <li className="nav-item d-flex align-items-center me-3 mt-2" >
+                                 
+                                 <Link className={`${styles.navLinkFont} nav-link text-black position-relative`} to="cart">
+                                    <i className={`fa-solid fa-cart-shopping fs-4 ${styles.iconFont}`}></i>
+                                    <span className={styles.wishlistNo}>1</span>
+                                    </Link>
+                                </li>
+                              
+                                    <li className="nav-item d-flex align-items-center me-3 mt-2" >
+                                 
+                                     <Link className={`${styles.navLinkFont} nav-link text-black position-relative`} to="wishlist">
+                                        <i className={`fa-solid fa-heart fs-4 ${styles.iconFont}`}></i>
+                                        <span className={styles.wishlistNo}>1</span>
+                                        </Link>
                                     </li>
-                                    )}
+                             
                                     <li className="nav-item d-flex align-items-center ms-2">
-                                    <i className="fa-solid fa-user"></i>
+                                    <i className="fa-solid fa-user fs-4"></i>
                                         <Link className={`${styles.navLinkFont} nav-link`}>{userData.name}</Link>
                                     </li>
                                     <li className="nav-item d-flex align-items-center ms-2">

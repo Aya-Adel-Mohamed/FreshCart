@@ -10,7 +10,7 @@ import googlePlay from '../../assets/footer/googlePlay.png';
 const Footer = () => {
     return (
         <>
-            <footer className={` ${styles.bgFooter} px-xl-5 py-0 pt-3 pb-4`}>
+            <footer className={` ${styles.bgFooter} px-xl-5 px-0 py-0 pt-3 pb-4`}>
                 <div className="container-fluid">
                     <h4 className={styles.footerTitle}>Get the FreshCart app</h4>
                     <p className={styles.paragraph}>We will send you a link, open it on your phone to download the app</p>
