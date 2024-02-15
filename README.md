@@ -24,6 +24,10 @@
 ## Brands
 ![Brands](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/bf395f0e-bd4d-4fb4-b393-516c55bcb29b)
 
+## Shopping Cart
+![cart](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/e9ccd30a-afec-4abd-8d46-58e35508479c)
+
+
 
 
 
