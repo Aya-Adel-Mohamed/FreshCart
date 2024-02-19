@@ -31,3 +31,10 @@ export const removeFromCart = async (id) => {
         });
         return data
 }
+export const clearCart = async () => {
+    let headers = { token:localStorage.getItem('userToken') }
+        const { data } = await axios.delete(`https://ecommerce.routemisr.com/api/v1/cart`,{
+            headers
+        });
+        return data
+}

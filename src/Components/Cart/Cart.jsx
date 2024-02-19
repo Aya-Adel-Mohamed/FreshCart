@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Loading from '../Loading/Loading.jsx';
 import styles from './Cart.module.css';
 import toast from "react-hot-toast";
 import { useMutation, useQuery } from "react-query";
 import { getLoggedUserCart, removeFromCart } from "../../apis/cart.api.js";
 import { queryClient } from "../../apis/query.clint.js";
+import ClearCart from "./ClearCart.jsx";
 const Cart = () => {
+    const [loading, setloading] = useState(true)
+    setTimeout(() => {
+        setloading(false)
+    }, 2000);
+
     const { isFetching, data: cartDetails } = useQuery({
         queryKey: ["cart"],
         queryFn: getLoggedUserCart,
@@ -17,6 +23,7 @@ const Cart = () => {
 
         keepPreviousData: true,
     });
+
 console.log(cartDetails);
     const { isLoading, mutate } = useMutation({
         mutationFn: removeFromCart,
@@ -49,9 +56,10 @@ console.log(cartDetails);
             queryClient.invalidateQueries(["cart"])
         }
     })
+
     return (
         <>
-            {isFetching ? <Loading /> :
+            {loading ? <Loading /> :
             
                 <div className=" mx-auto bg-secondary-light my-5 p-lg-5 p-3">
                     <h3 className="font fs-2 pb-2">Shopping Cart</h3>
@@ -88,18 +96,14 @@ console.log(cartDetails);
                         <div className="totalPrice d-flex justify-content-end">
                             <span className="font text-main fs-4 pt-3">Total Price: <span className="text-black">{cartDetails == undefined ? 0 : cartDetails?.data.totalCartPrice} EGP</span></span>
                         </div>
+                        {cartDetails? <ClearCart/>:''}
+         
                     </div>
 
 
                 </div>
-            }
-            {/* {cartDetails ? <>
-           
+             } 
 
-            </> :
-                <>
-                    <Loading />
-                </>}  */}
         </>
     );
 }

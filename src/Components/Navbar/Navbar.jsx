@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
+import { useQuery } from 'react-query';
+import { getLoggedUserCart } from '../../apis/cart.api';
 
 const Navbar = ({ userData, logOut }) => {
     console.log(userData);
@@ -11,7 +13,17 @@ const Navbar = ({ userData, logOut }) => {
         { name: 'Categories', link: 'categories' },
         { name: 'Brands', link: 'brands' }
     ]
+    const { isFetching, data: cartDetails } = useQuery({
+        queryKey: ["cart"],
+        queryFn: getLoggedUserCart,
+        refetchOnMount:true,
+        refetchOnWindowFocus: false,
+        onError: (err) => {
+            console.log(err);
+        },
 
+        keepPreviousData: true,
+    });
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary px-xl-5 py-0 py-3">
@@ -48,7 +60,7 @@ const Navbar = ({ userData, logOut }) => {
                                  
                                  <Link className={`${styles.navLinkFont} nav-link text-black position-relative`} to="cart">
                                     <i className={`fa-solid fa-cart-shopping fs-4 ${styles.iconFont}`}></i>
-                                    <span className={styles.wishlistNo}>1</span>
+                                    <span className={styles.wishlistNo}>{cartDetails?.numOfCartItems}</span>
                                     </Link>
                                 </li>
                               

@@ -72,7 +72,7 @@ function logOut(){
     <>
     <QueryClientProvider client={queryClient} >
       <RouterProvider router={routers} />
-      <Toaster   position="bottom-left" reverseOrder={false}/>
+      <Toaster position="bottom-left" reverseOrder={false}/>
     </QueryClientProvider>
     </>
   );
