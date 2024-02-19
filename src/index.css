@@ -20,7 +20,12 @@
 .font {
   font-family: 'Amaranth', sans-serif !important;
 }
-
+.btnQty{
+  border: 0;
+  border: 2px solid #0a0;
+  border-radius: 5px;
+  padding-inline: 10px;
+  }
 body {
   font-family: var(--font-family) !important;
 }

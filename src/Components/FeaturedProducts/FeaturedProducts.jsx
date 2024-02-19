@@ -14,7 +14,6 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
         refetchOnMount: true,
         refetchOnWindowFocus: false,
         onError: (err) => {
-            console.log(err);
         },
         keepPreviousData: true
     });
@@ -34,7 +33,6 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
             })
         },
         onError: (err) => {
-            console.log(err);
             toast.error('error adding product', {
                 position: 'bottom-left',
                 duration: 3000,

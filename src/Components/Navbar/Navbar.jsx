@@ -6,7 +6,6 @@ import { useQuery } from 'react-query';
 import { getLoggedUserCart } from '../../apis/cart.api';
 
 const Navbar = ({ userData, logOut }) => {
-    console.log(userData);
     const navLink = [
         { name: 'Home', link: '/' },
         { name: 'Products', link: 'products' },
@@ -17,13 +16,13 @@ const Navbar = ({ userData, logOut }) => {
         queryKey: ["cart"],
         queryFn: getLoggedUserCart,
         refetchOnMount:true,
-        refetchOnWindowFocus: false,
+        refetchOnWindowFocus: true,
         onError: (err) => {
-            console.log(err);
         },
 
         keepPreviousData: true,
     });
+    
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary px-xl-5 py-0 py-3">
@@ -60,7 +59,7 @@ const Navbar = ({ userData, logOut }) => {
                                  
                                  <Link className={`${styles.navLinkFont} nav-link text-black position-relative`} to="cart">
                                     <i className={`fa-solid fa-cart-shopping fs-4 ${styles.iconFont}`}></i>
-                                    <span className={styles.wishlistNo}>{cartDetails?.numOfCartItems}</span>
+                                    <span className={styles.wishlistNo}>{cartDetails?cartDetails?.numOfCartItems:0}</span>
                                     </Link>
                                 </li>
                               

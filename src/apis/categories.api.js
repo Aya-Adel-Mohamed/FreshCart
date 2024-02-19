@@ -7,6 +7,5 @@ export const getCategories = async (signal) => {
         });
         return data.data
     } catch (error) {
-        console.log(error);
     }
 }

@@ -28,7 +28,6 @@ const ProductDetails = () => {
         refetchOnMount: true,
         refetchOnWindowFocus: false,
         onError: (err) => {
-            console.log(err);
         },
         keepPreviousData: true
     });
@@ -47,7 +46,6 @@ const ProductDetails = () => {
             })
         },
         onError: (err) => {
-            console.log(err);
             toast.error('error adding product', {
                 position: 'bottom-left',
                 duration: 3000,

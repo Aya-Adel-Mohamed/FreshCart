@@ -17,12 +17,9 @@ const SignIn = ({ saveUserData }) => {
     const { isLoading, mutate, error } = useMutation({
         mutationFn: handleLogin,
         onSuccess: async (data, values) => {
-            console.log(data.token);
             localStorage.setItem('userToken', data.token)
-            
             saveUserData();
             navigate('/')
-       
         },
     })
     const resError = error ? error.response.data.message : null;

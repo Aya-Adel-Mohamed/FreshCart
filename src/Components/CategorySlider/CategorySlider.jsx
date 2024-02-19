@@ -15,7 +15,6 @@ const CategorySlider = () => {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     onError: (err) =>{
-        console.log(err);
     },
     keepPreviousData: true
 })

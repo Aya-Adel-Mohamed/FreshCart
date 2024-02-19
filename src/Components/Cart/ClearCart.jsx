@@ -20,7 +20,6 @@ const ClearCart = () => {
         },
 
         onError: (err) => {
-            console.log(err);
             toast.error('error removing cart', {
                 position: 'bottom-left',
                 duration: 3000,

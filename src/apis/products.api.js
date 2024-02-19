@@ -13,7 +13,6 @@ export const getProducts = async (signal, slug, brandSlug) => {
             return data.data
         }
     } catch (error) {
-        console.log(error);
     }
 }
 

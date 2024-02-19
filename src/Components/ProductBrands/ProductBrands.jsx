@@ -4,7 +4,7 @@ import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 import { Helmet } from "react-helmet";
 const ProductBrands = () => {
     const params = useParams();
-    console.log(params.brandSlug);
+
     return (  
         <>
            <Helmet>
