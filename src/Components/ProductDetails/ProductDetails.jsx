@@ -1,44 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import Slider from "react-slick";
 import Loading from '../Loading/Loading';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { getProductDetails } from '../../apis/productDetails.api';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './ProductDetails.module.css';
 import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
-import { CartContext } from '../../Context/CartContext';
+import { addToCart } from '../../apis/cart.api';
+import { queryClient } from '../../apis/query.clint';
 
 const ProductDetails = () => {
     let params = useParams();
-    let { addToCart } = useContext(CartContext);
-    async function addProductToCart(id) {
-        let response = await addToCart(id)
-        console.log(response);
-        if (response?.data?.status === "success") {
-            toast.success('product successfully added', {
-                position: 'bottom-left',
-                duration: 3000,
-                style: {
-                    borderRadius: '10px',
-                    background: '#333',
-                    color: '#fff',
-                },
-            })
-        } else {
-            toast.error('error adding product', {
-                position: 'bottom-left',
-                duration: 3000,
-                style: {
-                    borderRadius: '10px',
-                    background: '#333',
-                    color: '#fff',
-                },
-            })
-        }
-    }
     var settings = {
         dots: true,
         infinite: true,
@@ -57,10 +32,40 @@ const ProductDetails = () => {
         },
         keepPreviousData: true
     });
+    const { isLoading, mutate } = useMutation({
+        mutationFn: addToCart,
 
+        onSuccess: () => {
+            toast.success('product successfully added', {
+                position: 'bottom-left',
+                duration: 3000,
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            })
+        },
+        onError: (err) => {
+            console.log(err);
+            toast.error('error adding product', {
+                position: 'bottom-left',
+                duration: 3000,
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            })
+
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries(["cart"])
+        }
+    })
+    
     return (
         <>
-
             {isFetching ? <Loading /> : <>
                 <div className="row my-5 justify-content-center">
                     <div className="col-lg-4">
@@ -116,7 +121,7 @@ const ProductDetails = () => {
                             <img src={product?.brand?.image} className={styles.brandImg} alt="" />
                             <span className={styles.brandFont}>{product?.brand?.name}<span className={`text-main ms-2 ${styles.brandText}`}>(Brand)</span></span>
                         </div>
-                        <button className='btn bg-main text-white mt-2 w-100' onClick={() => addProductToCart(product.id)}><i className="fa-solid fa-cart-shopping me-2"></i> Add to cart</button>
+                        <button className='btn bg-main text-white mt-2 w-100' onClick={() => mutate(product.id)}><i className="fa-solid fa-cart-shopping me-2"></i> Add to cart</button>
 
                     </div>
 

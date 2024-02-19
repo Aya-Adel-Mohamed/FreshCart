@@ -7,25 +7,25 @@ import { useMutation } from 'react-query';
 import { handleLogin } from '../../apis/signIn.api';
 import { Helmet } from 'react-helmet';
 
-
 const SignIn = ({ saveUserData }) => {
     let navigate = useNavigate();
     const [passwordShown, setPasswordShown] = useState(false);
-
     const togglePasswordLoginVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     }
     
     const { isLoading, mutate, error } = useMutation({
         mutationFn: handleLogin,
-        onSuccess: (data, values) => {
+        onSuccess: async (data, values) => {
+            console.log(data.token);
             localStorage.setItem('userToken', data.token)
+            
             saveUserData();
             navigate('/')
+       
         },
     })
     const resError = error ? error.response.data.message : null;
-
     let validationSchema = Yup.object({
         email: Yup.string().required('Email is Required').email('Email is invalid'),
         password: Yup.string().required('Password is Required').matches(/[A-Z][a-z0-9]{4,20}$/, 'Password must start with uppercase ...'),
@@ -80,7 +80,6 @@ const SignIn = ({ saveUserData }) => {
 
                 </form>
             </div>
-
         </>
     );
 }

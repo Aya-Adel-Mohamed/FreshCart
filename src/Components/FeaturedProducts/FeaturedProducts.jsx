@@ -1,17 +1,28 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Loading from '../Loading/Loading';
 import { Link } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { getProducts } from '../../apis/products.api';
 import styles from './FeaturedProducts.module.css';
-import { CartContext } from '../../Context/CartContext';
+import { queryClient } from '../../apis/query.clint.js';
+import { addToCart } from '../../apis/cart.api';
 import toast from 'react-hot-toast';
 const FeaturedProducts = ({ slug, brandSlug }) => {
-    let { addToCart } = useContext(CartContext);
-    async function addProductToCart(id) {
-        let response = await addToCart(id)
-        console.log(response);
-        if (response?.data?.status === "success") {
+    const { isFetching, data: products } = useQuery({
+        queryKey: ["products"],
+        queryFn: ({ signal }) => getProducts(signal, slug, brandSlug),
+        refetchOnMount: true,
+        refetchOnWindowFocus: false,
+        onError: (err) => {
+            console.log(err);
+        },
+        keepPreviousData: true
+    });
+
+    const { isLoading, mutate } = useMutation({
+        mutationFn: addToCart,
+
+        onSuccess: () => {
             toast.success('product successfully added', {
                 position: 'bottom-left',
                 duration: 3000,
@@ -21,7 +32,9 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                     color: '#fff',
                 },
             })
-        } else {
+        },
+        onError: (err) => {
+            console.log(err);
             toast.error('error adding product', {
                 position: 'bottom-left',
                 duration: 3000,
@@ -31,19 +44,12 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                     color: '#fff',
                 },
             })
-        }
-    }
-    const { isFetching, data: products } = useQuery({
-        queryKey: ["products"],
-        queryFn: ({ signal }) => getProducts(signal, slug, brandSlug),
-        refetchOnMount: true,
-        refetchOnWindowFocus: false,
 
-        onError: (err) => {
-            console.log(err);
         },
-        keepPreviousData: true
-    });
+        onSettled: () => {
+            queryClient.invalidateQueries(["cart"])
+        }
+    })
 
     return (
         <>
@@ -69,7 +75,7 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                                                     <span ><i className='fas fa-star rating-color'></i>{product.ratingsAverage}</span>
                                                 </div>
                                             </Link>
-                                            <button className='btn bg-main text-white w-100 mt-2' onClick={() => addProductToCart(product.id)}><i className="fa-solid fa-cart-shopping me-2"></i> Add to cart</button>
+                                            <button className='btn bg-main text-white w-100 mt-2' onClick={() => mutate(product.id)} ><i className="fa-solid fa-cart-shopping me-2"></i> Add to cart</button>
                                         </div>
                                     </div>
                                 )}
