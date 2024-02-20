@@ -1,4 +1,4 @@
-# FreshCart E-Commerce
+# FreshCart E-Commerce using ReactQuery
 
 ## Login Form
 ![login](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/6757db91-dfdf-4d1c-acd7-d4aec8057ac0)
