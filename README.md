@@ -1,4 +1,4 @@
-# FreshCart E-Commerce
+# FreshCart E-Commerce using ReactQuery
 
 ## Login Form
 ![login](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/6757db91-dfdf-4d1c-acd7-d4aec8057ac0)
@@ -21,11 +21,19 @@
 ## Product Details
 ![FreshCart product](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/fd3bcc26-fe98-47a1-89e7-d6a466cead9e)
 
+## Categories
+![Categories](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/45444ef6-fae6-4fd5-93ff-da444a54326b)
+
 ## Brands
 ![Brands](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/bf395f0e-bd4d-4fb4-b393-516c55bcb29b)
 
 ## Shopping Cart
-![cart](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/e9ccd30a-afec-4abd-8d46-58e35508479c)
+![cart](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/14d9ab2e-7233-456e-9b03-6bec0b2e19d9)
+
+## My WishList
+![wishlist](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/4855282b-22fe-4136-9fff-d5923cfdbaed)
+
+
 
 
 
