@@ -20,6 +20,7 @@ import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
 import ProductsOfCategories from './Components/ProductsOfCategories/ProductsOfCategories.jsx';
 import ProductBrands from './Components/ProductBrands/ProductBrands.jsx';
 import './App.css';
+import WishList from './Components/WishList/WishList.jsx';
 
 function App() {
 const [userData,setUserData] = useState(null);
@@ -54,6 +55,7 @@ function logOut(){
       {index:true,element:<ProtectedRoute><Home/></ProtectedRoute>},
       {path:'products',element:<ProtectedRoute><Products/></ProtectedRoute>},
       {path:'cart',element:<ProtectedRoute><Cart/></ProtectedRoute>},
+      {path:'wishlist',element:<ProtectedRoute><WishList/></ProtectedRoute>},
       {path:'categories',element:<ProtectedRoute><Categories/></ProtectedRoute>},
       {path:'brands',element:<ProtectedRoute><Brands/></ProtectedRoute>},
       {path:'productdetails/:id',element:<ProtectedRoute><ProductDetails/></ProtectedRoute>},

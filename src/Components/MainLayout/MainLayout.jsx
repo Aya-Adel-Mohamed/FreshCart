@@ -3,8 +3,6 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { Outlet } from 'react-router-dom';
 import { Offline } from 'react-detect-offline';
-import { useQuery } from 'react-query';
-import { getLoggedUserCart } from '../../apis/cart.api';
 
 const MainLayout = ({userData,logOut}) => {
 
