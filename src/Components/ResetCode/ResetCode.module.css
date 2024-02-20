@@ -1,24 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Amaranth&family=Lobster&family=Lobster+Two:wght@700&display=swap');
-.ResetCodeTitle{
+
+.ResetCodeTitle {
     font-family: 'Amaranth', sans-serif;
     font-size: 35px;
 }
-.errorAlert{
-    margin-bottom: 0!important;
+
+.errorAlert {
+    margin-bottom: 0 !important;
     color: red;
     font-family: 'Amaranth', sans-serif;
 }
-.ContainerWidth{
+
+.ContainerWidth {
     width: 75%;
     margin-block: 267px;
+}
 
-}
-.alert{
+.alert {
     padding: 6px 12px;
-    font-family: 'Amaranth','sans-serif';
+    font-family: 'Amaranth', 'sans-serif';
 }
+
 @media screen and (max-width:700px) {
-    .ContainerWidth{
+    .ContainerWidth {
         width: 100%;
         margin-block: 30px;
     }

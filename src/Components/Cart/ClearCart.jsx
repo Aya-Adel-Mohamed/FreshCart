@@ -18,7 +18,6 @@ const ClearCart = () => {
                 },
             })
         },
-
         onError: (err) => {
             toast.error('error removing cart', {
                 position: 'bottom-left',
@@ -29,7 +28,6 @@ const ClearCart = () => {
                     color: '#fff',
                 },
             })
-
         },
         onSettled: () => {
             queryClient.invalidateQueries(["cart"])

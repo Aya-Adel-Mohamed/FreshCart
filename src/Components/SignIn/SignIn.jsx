@@ -13,7 +13,6 @@ const SignIn = ({ saveUserData }) => {
     const togglePasswordLoginVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     }
-    
     const { isLoading, mutate, error } = useMutation({
         mutationFn: handleLogin,
         onSuccess: async (data, values) => {

@@ -1,23 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Amaranth&family=Lobster&family=Lobster+Two:wght@700&display=swap');
 
-.price{
+.price {
     font-weight: 600;
     font-size: 14px;
 }
-.notFoundProduct{
+
+.notFoundProduct {
     height: 52vh;
     display: flex;
-justify-content: center;
-align-items: center;
-color:#0a0;
-font-size: 34px;
-font-family: 'Amaranth', sans-serif;
-flex-direction: column;
-
+    justify-content: center;
+    align-items: center;
+    color: #0a0;
+    font-size: 34px;
+    font-family: 'Amaranth', sans-serif;
+    flex-direction: column;
 }
-.notFoundProduct img{
+
+.notFoundProduct img {
     width: 30%;
 }
-.padding{
+
+.padding {
     padding-block: 45px;
 }

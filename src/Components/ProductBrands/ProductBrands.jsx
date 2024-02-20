@@ -5,14 +5,14 @@ import { Helmet } from "react-helmet";
 const ProductBrands = () => {
     const params = useParams();
 
-    return (  
+    return (
         <>
-           <Helmet>
+            <Helmet>
                 <title>{`FreshCart | ${params.brandSlug}`}</title>
             </Helmet>
-              <FeaturedProducts brandSlug={params.brandSlug}/>
+            <FeaturedProducts brandSlug={params.brandSlug} />
         </>
     );
 }
- 
+
 export default ProductBrands;

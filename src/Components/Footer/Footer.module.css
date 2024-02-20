@@ -1,70 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Amaranth&family=Lobster&family=Lobster+Two:wght@700&display=swap');
 
-.bgFooter{
+.bgFooter {
     background-color: #F8F9FA;
 }
-.footerTitle{
+
+.footerTitle {
     font-family: 'Amaranth', sans-serif;
     padding-top: 30px;
     font-size: 27px;
 }
-.paragraph{
+
+.paragraph {
     font-size: 16px;
     font-weight: 600;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0, 0, 0, 0.5);
 }
-.lineColor{
-    color: rgba(0,0,0,0.5);
+
+.lineColor {
+    color: rgba(0, 0, 0, 0.5);
 }
-.btnFont{
+
+.btnFont {
     font-size: 17px;
 }
-.imgWidthOne{
+
+.imgWidthOne {
     width: 65px;
     height: 11px;
 }
-.imgWidthTwo{
+
+.imgWidthTwo {
     width: 53px;
     height: 26px;
 
 }
-.imgWidthThree{
+
+.imgWidthThree {
     width: 50px;
     height: 29px;
 }
-.imgWidthFour{
+
+.imgWidthFour {
     width: 62px;
     height: 19px;
 }
-.imgWidthFive{
+
+.imgWidthFive {
     width: 96px;
 }
-.imgWidthSix{
+
+.imgWidthSix {
     width: 96px;
 }
-.gap{
+
+.gap {
     gap: 10px;
 }
-.paymentFont{
+
+.paymentFont {
     font-family: 'Amaranth', sans-serif;
-font-size: 22px;
+    font-size: 22px;
 }
-@media screen and (max-width:700px){
-    .footerTitle{
+
+@media screen and (max-width:700px) {
+    .footerTitle {
         font-size: 24px;
     }
-    .paragraph{
+
+    .paragraph {
         font-size: 14px;
     }
-    .paymentFont{
-    font-size: 16px;
+
+    .paymentFont {
+        font-size: 16px;
     }
 
 }
-@media screen and (max-width:800px){
 
-    .justify{
-        justify-content: start!important;
+@media screen and (max-width:800px) {
+
+    .justify {
+        justify-content: start !important;
         margin-top: 10px;
     }
 }

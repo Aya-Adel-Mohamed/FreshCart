@@ -14,41 +14,36 @@ const Home = () => {
     setTimeout(() => {
         setLoading(false)
     }, 2000);
-    
+
     const { data: cartDetails } = useQuery({
         queryKey: ["cart"],
         queryFn: getLoggedUserCart,
-        refetchOnMount:true,
+        refetchOnMount: true,
         refetchOnWindowFocus: true,
-        onError: (err) => {
-        },
         keepPreviousData: true,
     });
 
-    const {  data: wishlistDetails } = useQuery({
+    const { data: wishlistDetails } = useQuery({
         queryKey: ["wishlist"],
         queryFn: getLoggedUserWishlist,
         refetchOnMount: true,
         refetchOnWindowFocus: true,
-        onError: (err) => {
-        },
-
         keepPreviousData: true,
     });
-    // console.log(wishlistDetails);
-    return ( 
+    return (
         <>
-           <Helmet>
+            <Helmet>
                 <title>FreshCart | Home</title>
             </Helmet>
-        {loading?<Loading/>:
-        <>
-        <MainSlider/>
-        <CategorySlider/>
-        <FeaturedProducts/>
-        </>}
+            {loading ? <Loading /> :
+                <>
+                    <MainSlider />
+                    <CategorySlider />
+                    <FeaturedProducts />
+                </>
+            }
         </>
-     );
+    );
 }
- 
+
 export default Home;

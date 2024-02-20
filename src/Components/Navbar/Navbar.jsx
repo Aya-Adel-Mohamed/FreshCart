@@ -18,9 +18,6 @@ const Navbar = ({ userData, logOut }) => {
         queryFn: getLoggedUserCart,
         refetchOnMount:true,
         refetchOnWindowFocus: true,
-        onError: (err) => {
-        },
-
         keepPreviousData: true,
     });
     const {  data: wishlistDetails } = useQuery({
@@ -28,13 +25,8 @@ const Navbar = ({ userData, logOut }) => {
         queryFn: getLoggedUserWishlist,
         refetchOnMount: true,
         refetchOnWindowFocus: true,
-        onError: (err) => {
-        },
-
         keepPreviousData: true,
     });
-    // console.log(wishlistDetails);
-    
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary px-xl-5 py-0 py-3">
@@ -52,9 +44,7 @@ const Navbar = ({ userData, logOut }) => {
                                     </li>
                                 )}
                             </ul>
-                        </> : null
-                        }
-
+                        </> : null}
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             {userData === null ?
                                 <>
@@ -64,7 +54,6 @@ const Navbar = ({ userData, logOut }) => {
                                     <li className="nav-item d-flex align-items-center">
                                         <Link className={`${styles.navLinkFont} nav-link`} to="signup">Register</Link>
                                     </li>
-
                                 </> :
                                 <>
                                 <li className="nav-item d-flex align-items-center me-3 mt-2" >
@@ -74,13 +63,11 @@ const Navbar = ({ userData, logOut }) => {
                                     <span className={styles.wishlistNo}>{cartDetails?cartDetails?.numOfCartItems:0}</span>
                                     </Link>
                                 </li>
-                              
                                     <li className="nav-item d-flex align-items-center me-3 mt-2" >
                                  
                                      <Link className={`${styles.navLinkFont} nav-link text-black position-relative`} to="wishlist">
                                         <i className={`fa-solid fa-heart fs-4 ${styles.iconFont}`}></i>
                                         <span className={styles.wishlistNo}>{wishlistDetails?wishlistDetails?.count:0}</span>
-
                                         </Link>
                                     </li>
                              

@@ -6,6 +6,8 @@ import { useMutation, useQuery } from "react-query";
 import { getLoggedUserCart, removeFromCart, updateCartProductQuantity } from "../../apis/cart.api.js";
 import { queryClient } from "../../apis/query.clint.js";
 import ClearCart from "./ClearCart.jsx";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Cart = () => {
     const [loading, setloading] = useState(true)
@@ -18,9 +20,6 @@ const Cart = () => {
         queryFn: getLoggedUserCart,
         refetchOnMount: true,
         refetchOnWindowFocus: false,
-        onError: (err) => {
-        },
-
         keepPreviousData: true,
     });
 
@@ -37,7 +36,6 @@ const Cart = () => {
                 },
             })
         },
-
         onError: (err) => {
             toast.error('error removing product', {
                 position: 'bottom-left',
@@ -62,10 +60,13 @@ const Cart = () => {
             queryClient.invalidateQueries(["cart"])
         }
     })
+
     return (
         <>
+            <Helmet>
+                <title>FreshCart | Cart</title>
+            </Helmet>
             {loading ? <Loading /> :
-
                 <div className=" mx-auto bg-secondary-light my-5 p-lg-5 p-3">
                     <h3 className="font fs-2 pb-2">Shopping Cart</h3>
                     <h5 className="font border-bottom-1"><span className="text-main">Cart Items: </span>{cartDetails == undefined ? 0 : cartDetails?.numOfCartItems}</h5>
@@ -76,12 +77,14 @@ const Cart = () => {
                                     <div className="col-lg-9 my-3">
                                         <div className="row">
                                             <div className="col-lg-2">
-                                                <img src={product.product.imageCover} className='w-100' alt="" />
+                                                <Link to={`/productdetails/${product.product.id}`}>
+                                                    <img src={product.product.imageCover} className='w-100' alt="" />
+                                                </Link>
                                             </div>
                                             <div className="col-lg-10 d-flex flex-column pt-4" >
                                                 <span className="font fw-lighter fs-4">{product.product.title}</span>
                                                 <span className="text-main font fs-5">Price: <span className="text-black">{product.price * product.count} EGP</span></span>
-                                                <span className="fs-5 font pt-4 cursor-pointer" onClick={() => removeMutate(product.product.id)}><i className=" me-2 text-main fa-regular fa-trash-can"></i>Remove</span>
+                                                <span className="fs-5 font pt-4 cursor-pointer Remove" onClick={() => removeMutate(product.product.id)}><i className=" me-2 text-main fa-regular fa-trash-can"></i>Remove</span>
                                             </div>
                                         </div>
                                     </div>
@@ -99,14 +102,10 @@ const Cart = () => {
                         <div className="totalPrice d-flex justify-content-end">
                             <span className="font text-main fs-4 pt-3">Total Price: <span className="text-black">{cartDetails == undefined ? 0 : cartDetails?.data.totalCartPrice} EGP</span></span>
                         </div>
-                        {cartDetails ? <ClearCart /> : ''}
-
+                        {cartDetails?.data.products.length > 0 ? <ClearCart /> : ''}
                     </div>
-
-
                 </div>
             }
-
         </>
     );
 }

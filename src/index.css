@@ -127,7 +127,7 @@ a:focus {
 
 .btn {
   font-family: 'Amaranth';
-  font-size: 18px;
+  font-size: 15px;
   padding: 5px 20px;
   border-radius: 7px;
 }
@@ -251,6 +251,13 @@ label {
 }
 .border-bottom-1{
   border-bottom: 1px solid rgb(208, 208, 208);
+}
+.Remove{
+  width: fit-content;
+}
+.Remove:hover{
+  color: red!important;
+  transition: all 0.4s ease-in-out;
 }
 @keyframes msg {
   from {

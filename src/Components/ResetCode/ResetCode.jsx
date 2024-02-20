@@ -10,16 +10,13 @@ import { Helmet } from "react-helmet";
 
 export default function ResetCode() {
   let navigate = useNavigate();
-
   const { isLoading, mutate, error } = useMutation({
     mutationFn: sendCode,
     onSuccess: (data, values) => {
       navigate("/resetPassword")
     },
   })
-
   const resError = error ? error.response.data.message : null;
-
   const validationSchema = yup.object({
     resetCode: yup.string().required("you can't change your password without reset code"),
   });

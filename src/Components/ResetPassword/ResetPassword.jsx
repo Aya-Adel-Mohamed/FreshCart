@@ -11,11 +11,9 @@ import { Helmet } from "react-helmet";
 export default function ResetPassword() {
   let navigate = useNavigate();
   const [passwordShown, setPasswordShown] = useState(false);
-
   const togglePasswordResetVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   }
-
   const { isLoading, mutate, error } = useMutation({
     mutationFn: changePassword,
     onSuccess: (data, values) => {

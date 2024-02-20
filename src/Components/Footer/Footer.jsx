@@ -33,9 +33,9 @@ const Footer = () => {
                         </div>
                         <div className={`col-lg-5 d-flex align-items-center justify-content-end ${styles.gap} ${styles.justify}`}>
                             <h6 className={`${styles.paymentFont} me-3`}>Get deliveries with FreshCart</h6>
-                         <img src={appleStore} alt="" className={styles.imgWidthFive} />
+                            <img src={appleStore} alt="" className={styles.imgWidthFive} />
                             <img src={googlePlay} alt="" className={styles.imgWidthSix} />
-       
+
                         </div>
                     </div>
                     <hr className={styles.lineColor} />

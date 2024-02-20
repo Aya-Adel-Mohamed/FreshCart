@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Amaranth&family=Lobster&family=Lobster+Two:wght@700&display=swap');
 
-.brandContainer{
+.brandContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,49 +8,42 @@
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
-
     box-shadow: 1px 1px 8px -6px darkgray;
     flex-direction: column;
     overflow: hidden;
     position: relative;
     cursor: pointer;
-   transition: all 0.5s ease;
-
-}
-
-
-.brandContainer span{
-    font-family: 'Amaranth', sans-serif;
-   color:#fff;
-   background-color: #0a0;
-   position: absolute;
-   z-index: 99;
-   top:0;
-   right: -100%;
-   padding: 0px 15px;
-   transition: all 0.5s ease;
-   opacity: 0.5;
-   transition-delay: 0.5s;
-  
-}
-
-.container:hover .brandContainer span{
-right: 0;
-opacity: 1;
-
-
-}
-.container:hover .brandContainer {
-  box-shadow: 1px 1px 8px -6px rgb(33, 33, 33);
-
-    }
-.brandContainer img{
     transition: all 0.5s ease;
- 
 }
-.container:hover .brandContainer img{
- scale: 0.8;
-    
-    
-    }
-    
+
+
+.brandContainer span {
+    font-family: 'Amaranth', sans-serif;
+    color: #fff;
+    background-color: #0a0;
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    right: -100%;
+    padding: 0px 15px;
+    transition: all 0.5s ease;
+    opacity: 0.5;
+    transition-delay: 0.5s;
+}
+
+.container:hover .brandContainer span {
+    right: 0;
+    opacity: 1;
+}
+
+.container:hover .brandContainer {
+    box-shadow: 1px 1px 8px -6px rgb(33, 33, 33);
+}
+
+.brandContainer img {
+    transition: all 0.5s ease;
+}
+
+.container:hover .brandContainer img {
+    scale: 0.8;
+}

@@ -27,13 +27,10 @@ const ProductDetails = () => {
         queryFn: ({ signal }) => getProductDetails(signal, params.id),
         refetchOnMount: true,
         refetchOnWindowFocus: false,
-        onError: (err) => {
-        },
         keepPreviousData: true
     });
     const { isLoading, mutate } = useMutation({
         mutationFn: addToCart,
-
         onSuccess: () => {
             toast.success('product successfully added', {
                 position: 'bottom-left',
@@ -55,7 +52,6 @@ const ProductDetails = () => {
                     color: '#fff',
                 },
             })
-
         },
         onSettled: () => {
             queryClient.invalidateQueries(["cart"])
@@ -69,11 +65,9 @@ const ProductDetails = () => {
                     <div className="col-lg-4">
                         {product?.priceAfterDiscount ?
                             <div className="position-relative">
-
                                 <div className={styles.discount}>
                                     Discount
                                 </div>
-
                                 {product?.images?.length > 1 ? <>
                                     <Slider {...settings}>
                                         {product?.images?.map((img, index) =>
@@ -108,21 +102,16 @@ const ProductDetails = () => {
                                     <span className='text-muted text-decoration-line-through fw-bold fs-5'>{product?.price} EGP</span>
                                     <span className='text-main fw-bold fs-5'>{product?.priceAfterDiscount} EGP</span>
                                 </div>
-
                                 : <span className='text-main fw-bold fs-5'>{product?.price} EGP</span>
                             }
-
                             <span className='fw-bold fs-5'><i className='fas fa-star rating-color me-2'></i>{product?.ratingsAverage}</span>
-
                         </div>
                         <div className="d-flex align-items-center font mt-2">
                             <img src={product?.brand?.image} className={styles.brandImg} alt="" />
                             <span className={styles.brandFont}>{product?.brand?.name}<span className={`text-main ms-2 ${styles.brandText}`}>(Brand)</span></span>
                         </div>
                         <button className='btn bg-main text-white mt-2 w-100' onClick={() => mutate(product.id)}><i className="fa-solid fa-cart-shopping me-2"></i> Add to cart</button>
-
                     </div>
-
                 </div>
             </>}
         </>
