@@ -81,7 +81,7 @@ const CategorySlider = () => {
   };
   return (
     <>
-      <h4 className='mt-5 fw-semibold mb-3'>Shop Popular Categories</h4>
+      <h4 className='mt-5 fw-semibold mb-3 pt-5'>Shop Popular Categories</h4>
       <Slider {...settings}>
         {categories?.map((category, index) =>
           <Link className='text-decoration-none text-black' to={`categories/productcategories/${category.slug}`} key={index}>
