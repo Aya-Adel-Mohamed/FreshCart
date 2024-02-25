@@ -49,7 +49,7 @@ export default function ResetPassword() {
         <form onSubmit={formik.handleSubmit}>
           <div className="form-group mb-3">
             <label htmlFor="resetCode">email</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="form-control mb-3" type="email" id="email" value={formik.values.email} />
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="form-control" type="email" id="email" value={formik.values.email} />
             {formik.errors.email && formik.touched.email ?
               <div className={styles.errorAlert}>{formik.errors.email}</div>
               : null}

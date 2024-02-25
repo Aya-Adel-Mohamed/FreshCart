@@ -21,6 +21,7 @@ import ProductsOfCategories from './Components/ProductsOfCategories/ProductsOfCa
 import ProductBrands from './Components/ProductBrands/ProductBrands.jsx';
 import './App.css';
 import WishList from './Components/WishList/WishList.jsx';
+import CheckOut from './Components/CheckOut/CheckOut.jsx';
 
 function App() {
 const [userData,setUserData] = useState(null);
@@ -29,7 +30,7 @@ function saveUserData (){
   let decodedToken = jwtDecode(encodedToken);
   setUserData(decodedToken);
 }
-
+console.log(userData);
 useEffect(()=>{
   if(localStorage.getItem("userToken")){
     saveUserData()
@@ -58,6 +59,7 @@ function logOut(){
       {path:'wishlist',element:<ProtectedRoute><WishList/></ProtectedRoute>},
       {path:'categories',element:<ProtectedRoute><Categories/></ProtectedRoute>},
       {path:'brands',element:<ProtectedRoute><Brands/></ProtectedRoute>},
+      {path:'checkout',element:<ProtectedRoute><CheckOut/></ProtectedRoute>},
       {path:'productdetails/:id',element:<ProtectedRoute><ProductDetails/></ProtectedRoute>},
       {path:'categories/productcategories/:slug',element:<ProtectedRoute><ProductsOfCategories/></ProtectedRoute>},
       {path:'brands/productbrands/:brandSlug',element:<ProtectedRoute><ProductBrands/></ProtectedRoute>},

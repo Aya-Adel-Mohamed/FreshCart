@@ -103,7 +103,9 @@ a:focus {
 .font-sm {
   font-size: 17px;
 }
-
+.border-main{
+  border: 1px solid #0a0!important;
+}
 .text-main {
   color: var(--main-color) !important;
 }
@@ -111,7 +113,12 @@ a:focus {
 .bg-main {
   background-color: var(--main-color) !important;
 }
-
+.gap-x{
+  gap: 20px;
+}
+.gap-payment-x{
+  gap: 50px;
+}
 .bg-main-light {
   background-color: var(--light-color) !important;
 }

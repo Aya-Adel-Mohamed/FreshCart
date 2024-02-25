@@ -17,6 +17,7 @@ const SignIn = ({ saveUserData }) => {
         mutationFn: handleLogin,
         onSuccess: async (data, values) => {
             localStorage.setItem('userToken', data.token)
+            console.log(data);
             saveUserData();
             navigate('/')
         },

@@ -34,8 +34,8 @@ const ClearCart = () => {
         }
     })
     return (<>
-        <div className="clearCart text-center mt-4">
-            <button className="bg-main btn text-white fs-5 px-4" onClick={() => mutate()}>Clear Cart</button>
+        <div className="clearCart text-end  mt-4">
+            <button className="btn border-main text-main fs-5 px-3 py-1" onClick={() => mutate()}>Clear Cart</button>
         </div>
     </>);
 }

@@ -47,3 +47,13 @@ export const updateCartProductQuantity = async ({id,count}) => {
         });
         return data
 }
+
+export const onlinePayment = async ({values,cartId}) => {
+    let headers = { token:localStorage.getItem('userToken') }
+        const { data } = await axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:3000`,{
+            shippingAddress:values
+        },{
+            headers
+        });
+        return data
+}

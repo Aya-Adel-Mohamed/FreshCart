@@ -4,3 +4,6 @@
     border-radius: 5px;
     padding-inline: 10px;
 }
+.anchor,.anchor:hover,.anchor:focus{
+    color: white!important;
+}
