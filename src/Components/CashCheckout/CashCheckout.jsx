@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import * as Yup from 'yup';
-import styles from './CheckOut.module.css';
+import styles from './CashCheckout.module.css';
 import { useFormik } from "formik";
 import payment from '../../assets/backgroundSliderHome/payment.jpg'
 import { useMutation, useQuery } from "react-query";
-import { getLoggedUserCart, onlinePayment } from "../../apis/cart.api";
+import { CashOnDelivery, getLoggedUserCart } from "../../apis/cart.api";
 import { useNavigate } from "react-router-dom";
 
-
-const CheckOut = () => {
-    const [loading, setLoading] = useState(false)
+const CashCheckout = () => {
+    const [loading, setLoading] = useState(false);
+    let navigate = useNavigate()
     const { isFetching, data: cartDetails } = useQuery({
         queryKey: ["cart"],
         queryFn: getLoggedUserCart,
@@ -20,11 +20,11 @@ const CheckOut = () => {
     let cartId = cartDetails.data._id;
     console.log(cartId);
     const { isLoading, mutate, error } = useMutation({
-        mutationFn: onlinePayment,
+        mutationFn: CashOnDelivery,
         onSuccess: async (data, values) => {
-            console.log(data.session.url);   
-            window.location.href = `${data.session.url}`;
-            console.log(data);
+            console.log(data);   
+         navigate('/allorders')
+
         },
     })
     let validationSchema = Yup.object({
@@ -79,4 +79,4 @@ const CheckOut = () => {
     );
 }
  
-export default CheckOut;
+export default CashCheckout;

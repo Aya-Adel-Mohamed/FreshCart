@@ -57,3 +57,22 @@ export const onlinePayment = async ({values,cartId}) => {
         });
         return data
 }
+
+export const CashOnDelivery = async ({values,cartId}) => {
+    let headers = { token:localStorage.getItem('userToken') }
+        const { data } = await axios.post(`https://ecommerce.routemisr.com/api/v1/orders/${cartId}`,{
+            shippingAddress:values
+        },{
+            headers
+        });
+        return data
+}
+
+export const getUserOrders = async (userId) => {
+    try {
+        const { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${userId}`);
+        return data
+    } catch (error) {
+  
+    }
+}

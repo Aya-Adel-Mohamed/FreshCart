@@ -22,6 +22,8 @@ import ProductBrands from './Components/ProductBrands/ProductBrands.jsx';
 import './App.css';
 import WishList from './Components/WishList/WishList.jsx';
 import CheckOut from './Components/CheckOut/CheckOut.jsx';
+import Orders from './Components/Orders/Orders.jsx';
+import CashCheckout from './Components/CashCheckout/CashCheckout.jsx';
 
 function App() {
 const [userData,setUserData] = useState(null);
@@ -60,9 +62,11 @@ function logOut(){
       {path:'categories',element:<ProtectedRoute><Categories/></ProtectedRoute>},
       {path:'brands',element:<ProtectedRoute><Brands/></ProtectedRoute>},
       {path:'checkout',element:<ProtectedRoute><CheckOut/></ProtectedRoute>},
+      {path:'cash',element:<ProtectedRoute><CashCheckout/></ProtectedRoute>},
       {path:'productdetails/:id',element:<ProtectedRoute><ProductDetails/></ProtectedRoute>},
       {path:'categories/productcategories/:slug',element:<ProtectedRoute><ProductsOfCategories/></ProtectedRoute>},
       {path:'brands/productbrands/:brandSlug',element:<ProtectedRoute><ProductBrands/></ProtectedRoute>},
+      {path:'allorders',element:<ProtectedRoute><Orders userData={userData}/></ProtectedRoute>},
       {path:'signup',element:<SignUp/>},
       {path:'signin',element:<SignIn saveUserData={saveUserData}/>},
       {path:'forgetPassword',element:<ForgetPassword/>},
