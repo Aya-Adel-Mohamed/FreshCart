@@ -1,7 +1,7 @@
 import React from "react";
-import styles from './Orders.module.css';
 import { useQuery } from "react-query";
 import { getUserOrders } from "../../apis/cart.api";
+import Loading from '../Loading/Loading.jsx';
 
 const Orders = ({userData}) => {
     console.log(userData);
@@ -17,6 +17,8 @@ console.log(userData);
 
     return (  
         <>
+        {isFetching?<Loading/>:
+        
 <section className="my-5">
 {orders?.map((order,index)=>
         <>
@@ -47,6 +49,7 @@ console.log(userData);
         </>
         )}
 </section>
+        }
   
         </>
     );
