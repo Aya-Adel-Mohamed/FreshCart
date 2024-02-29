@@ -33,6 +33,14 @@
 ## My WishList
 ![wishlist](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/4855282b-22fe-4136-9fff-d5923cfdbaed)
 
+## CheckOut
+![checkout](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/56a28431-5a6e-432b-848d-3f0cef6ca7b0)
+
+## Online Payment
+![onlinepayment](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/1869ce86-a38f-4fd2-b1e2-45aeadb34a3f)
+
+
+
 
 
 
