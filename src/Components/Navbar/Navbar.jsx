@@ -73,7 +73,7 @@ const Navbar = ({ userData, logOut }) => {
                              
                                     <li className="nav-item d-flex align-items-center ms-2">
                                     <i className="fa-solid fa-user fs-4"></i>
-                                        <Link className={`${styles.navLinkFont} nav-link`}>{userData.name}</Link>
+                                        <Link className={`${styles.navLinkFont} nav-link`} to='profile'>{userData.name}</Link>
                                     </li>
                                     <li className="nav-item d-flex align-items-center ms-2">
                                         <span className={`${styles.navLinkFont} nav-link`} onClick={logOut}>SignOut</span>

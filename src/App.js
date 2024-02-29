@@ -19,11 +19,12 @@ import ResetPassword from './Components/ResetPassword/ResetPassword';
 import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
 import ProductsOfCategories from './Components/ProductsOfCategories/ProductsOfCategories.jsx';
 import ProductBrands from './Components/ProductBrands/ProductBrands.jsx';
-import './App.css';
 import WishList from './Components/WishList/WishList.jsx';
 import CheckOut from './Components/CheckOut/CheckOut.jsx';
 import Orders from './Components/Orders/Orders.jsx';
 import CashCheckout from './Components/CashCheckout/CashCheckout.jsx';
+import Profile from './Components/Profile/Profile.jsx';
+import './App.css';
 
 function App() {
 const [userData,setUserData] = useState(null);
@@ -63,6 +64,7 @@ function logOut(){
       {path:'brands',element:<ProtectedRoute><Brands/></ProtectedRoute>},
       {path:'checkout',element:<ProtectedRoute><CheckOut/></ProtectedRoute>},
       {path:'cash',element:<ProtectedRoute><CashCheckout/></ProtectedRoute>},
+      {path:'profile',element:<ProtectedRoute><Profile userData={userData}/></ProtectedRoute>},
       {path:'productdetails/:id',element:<ProtectedRoute><ProductDetails/></ProtectedRoute>},
       {path:'categories/productcategories/:slug',element:<ProtectedRoute><ProductsOfCategories/></ProtectedRoute>},
       {path:'brands/productbrands/:brandSlug',element:<ProtectedRoute><ProductBrands/></ProtectedRoute>},
