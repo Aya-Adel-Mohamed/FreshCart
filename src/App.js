@@ -64,7 +64,7 @@ function logOut(){
       {path:'brands',element:<ProtectedRoute><Brands/></ProtectedRoute>},
       {path:'checkout',element:<ProtectedRoute><CheckOut/></ProtectedRoute>},
       {path:'cash',element:<ProtectedRoute><CashCheckout/></ProtectedRoute>},
-      {path:'profile',element:<ProtectedRoute><Profile userData={userData}/></ProtectedRoute>},
+      {path:'profile',element:<ProtectedRoute><Profile/></ProtectedRoute>},
       {path:'productdetails/:id',element:<ProtectedRoute><ProductDetails/></ProtectedRoute>},
       {path:'categories/productcategories/:slug',element:<ProtectedRoute><ProductsOfCategories/></ProtectedRoute>},
       {path:'brands/productbrands/:brandSlug',element:<ProtectedRoute><ProductBrands/></ProtectedRoute>},

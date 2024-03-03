@@ -7,6 +7,7 @@ import { getLoggedUserCart } from '../../apis/cart.api';
 import { getLoggedUserWishlist } from '../../apis/wishlist.api';
 
 const Navbar = ({ userData, logOut }) => {
+    console.log(userData);
     const navLink = [
         { name: 'Home', link: '/' },
         { name: 'Products', link: 'products' },

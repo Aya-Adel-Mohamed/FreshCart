@@ -1,67 +1,42 @@
 import React from "react";
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import styles from './Profile.module.css'
-const Profile = ({userData}) => {
-    console.log(userData);
+import UpdateUserData from "./UpdateUserData/UpdateUserData";
+import UpdateUserPassword from "./UpdateUserPassword/UpdateUserPassword";
+import UserAddresses from "./UserAddresses/UserAddresses";
+import { Link } from "react-router-dom";
+const Profile = () => {
 
-    function handleUpdateUserData(){
-        console.log("userData");
-    }
-    let validationSchema = Yup.object({
-        name: Yup.string().required('Name is Required').min(3, 'Name minlength is 3').max(10, 'Name maxlength is 10'),
-        email: Yup.string().required('Email is Required').email('Email is invalid'),
-        phone: Yup.string().required('Phone is Required').matches(/^01[0125][0-9]{8}$/, 'Phone must be a valid number'),
-    })
-    let formik = useFormik({
-        initialValues: {
-            name: '',
-            email: '',
-            phone: '',
-        },
-        validationSchema,
-        onSubmit: handleUpdateUserData,
-    });
-    return ( 
-        <>
-        <section>
-            <div className="row justify-content-center align-items-center my-5">
-                <div className="profile-content d-flex justify-content-center align-items-center flex-column">
-                  <div className={styles.icon}>
-                  <i className="fa fa-user-alt fa-3x text-main"></i>
-                  </div>
-                  <form onSubmit={formik.handleSubmit} className="w-50 mt-4">
-                   <h4 className="font text-black">Update Logged user Data</h4>
-                    {/* {resError != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{resError}</div> : ''} */}
-                    <div className="form-group mb-3">
-                        <label htmlFor='name'>name</label>
-                        <input className='form-control ' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} type="text" name='name' id='name' />
-                        {formik.errors.name && formik.touched.name ? <div className={styles.errorAlert}>{formik.errors.name}</div> : null}
-                    </div>
-
-                    <div className="form-group mb-3">
-                        <label htmlFor='email'>email</label>
-                        <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} type="email" name='email' id='email' />
-                        {formik.errors.email && formik.touched.email ? <div className={styles.errorAlert}>{formik.errors.email}</div> : null}
-                    </div>
-
-                    <div className="form-group mb-3">
-                        <label htmlFor='phone'>phone</label>
-                        <input className='form-control' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.phone} type="tel" name='phone' id='phone' />
-                        {formik.errors.phone && formik.touched.phone ? <div className={styles.errorAlert}>{formik.errors.phone}</div> : null}
-                    </div>
-                    {/* {isLoading ? */}
-                        {/* <button type='button' className='btn bg-main text-white d-flex ms-auto py-2 px-2'><i className='fas fa-spinner fa-spin'></i></button> */}
-                        {/* : */}
-                        <button disabled={!(formik.isValid && formik.dirty)} className='btn bg-main text-white d-flex ms-auto' type='submit'>Update</button>
-                    {/* } */}
-                </form>
-                </div>
-
+  return (
+    <>
+      <section>
+        {/* <button className="text-main btn border"><Link to='/signin'>Save Changes</Link></button> */}
+        <div className="row mt-5">
+          <ul className="nav nav-tabs font" id="myTab" role="tablist">
+            <li className="nav-item" role="presentation">
+              <button className={`nav-link active ${styles.navLink} navLink`} id="user-Data-tab" data-bs-toggle="tab" data-bs-target="#user-Data-tab-pane" type="button" role="tab" aria-controls="user-Data-tab-pane" aria-selected="true">Update User Data</button>
+            </li>
+            <li className="nav-item" role="presentation">
+              <button className={`nav-link ${styles.navLink}`} id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Update User Password</button>
+            </li>
+            <li className="nav-item" role="presentation">
+              <button className={`nav-link ${styles.navLink}`} id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">User Addresses</button>
+            </li>
+          </ul>
+          <div className="tab-content" id="myTabContent">
+            <div className="tab-pane fade show active" id="user-Data-tab-pane" role="tabpanel" aria-labelledby="user-Data-tab" tabIndex="0">
+              <UpdateUserData />
             </div>
-        </section>
-        </>
-     );
+            <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
+              <UpdateUserPassword />
+            </div>
+            <div className="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabIndex="0">
+              <UserAddresses />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
- 
+
 export default Profile;
