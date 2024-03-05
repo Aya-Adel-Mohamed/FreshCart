@@ -62,7 +62,7 @@ const UserAddresses = () => {
             <div className="container my-5">
                 <div className="row justify-content-center align-items-center py-3">
                     <i className="fa-solid fa-location-dot text-center text-main fa-4x"></i>
-                    <form onSubmit={formik.handleSubmit} className="w-75">
+                    <form onSubmit={formik.handleSubmit} className="w-50">
                         <div className="form-group mb-3">
                             <label htmlFor="name">Name</label>
                             <input type="text" className="form-control mb-2" name="name" id='name' value={formik.values.name} onChange={formik.handleChange} onBlur={formik.handleBlur} />
@@ -89,7 +89,7 @@ const UserAddresses = () => {
 
                     <div className="d-flex mt-5 justify-content-center align-items-center flex-column ">
                         {address?.data?.map((ele, index) =>
-                            <div className="w-75 bg-light font p-4 mt-3 border-radius">
+                            <div className="w-50 bg-light font p-4 mt-3 border-radius">
                                 <div className="d-flex">
                                     <div className="col-lg-9">
 
