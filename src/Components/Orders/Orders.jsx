@@ -5,7 +5,7 @@ import Loading from '../Loading/Loading.jsx';
 
 const Orders = ({userData}) => {
     console.log(userData);
-console.log(userData);
+
     const { isFetching, data: orders } = useQuery({
         queryKey: ["orders", userData?.id],
         queryFn: () => getUserOrders(userData?.id),

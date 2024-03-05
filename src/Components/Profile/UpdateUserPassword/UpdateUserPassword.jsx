@@ -1,6 +1,10 @@
 import React,{useState} from "react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useMutation } from "react-query";
+import toast from "react-hot-toast";
+import {UpdateUserLoggedPassword} from '../../../apis/profile.api'
+
 import styles from './UpdateUserPassword.module.css';
 const UpdateUserPassword = () => {
    
@@ -18,9 +22,20 @@ const UpdateUserPassword = () => {
     const toggleRePasswordVisiblity = () => {
         setRePasswordShown(rePasswordShown ? false : true);
     }
-    function handleUpdate(){
-        console.log("update");
-    }
+    const { isLoading, mutate, error } = useMutation({
+        mutationFn: UpdateUserLoggedPassword,
+        onSuccess: async (data, values) => {
+            toast.success('Profile successfully updated', {
+                position: 'bottom-left',
+                duration: 3000,
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            })
+        },
+    })
 
     let validationSchema = Yup.object({
         currentPassword: Yup.string().required('Password is Required').matches(/[A-Z][a-z0-9]{4,20}$/, 'Password must start with uppercase ...'),
@@ -35,7 +50,9 @@ const UpdateUserPassword = () => {
             rePassword: '',
         },
         validationSchema,
-        onSubmit:handleUpdate,
+        onSubmit: (values) => {
+            mutate(values)
+        },
     });
     return ( 
         <>
@@ -53,7 +70,7 @@ const UpdateUserPassword = () => {
                     <div className="form-group mb-3">
                         <label htmlFor='currentPassword'>currentPassword</label>
                         <div className="position-relative">
-                            <input className='form-control position-relative' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.currentPassword} type={currentPasswordShown ? "text" : "password"} name={currentPasswordShown ? "text" : "password"} id="password" />
+                            <input className='form-control position-relative' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.currentPassword} type={currentPasswordShown ? "text" : "password"} name={currentPasswordShown ? "text" : "currentPassword"} id="currentPassword" />
 
                             <i onClick={toggleCurrentPasswordVisiblity} className={currentPasswordShown ? `fa-solid fa-eye ${styles.eyeIcon}` : `fa-solid fa-eye-slash ${styles.eyeIcon}`}></i>
                         </div>

@@ -49,6 +49,7 @@ const CheckOut = () => {
             <div className="row gap-payment-x justify-content-center align-items-center py-3">
                 <div className="col-lg-6">
                 <form onSubmit={formik.handleSubmit}>
+        <h2 className="font mb-4 text-main">Shipping Address</h2>
                 <div className="form-group mb-3">
                 <label htmlFor="details">Details</label>
                 <input type="text" className="form-control mb-2" name="details" id='details' value={formik.values.details} onChange={formik.handleChange} onBlur={formik.handleBlur} />
