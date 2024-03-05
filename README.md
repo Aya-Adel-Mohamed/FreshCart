@@ -9,7 +9,7 @@
 ## Forget Password
 ![ForgetPassword](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/0c115c19-3ce1-4ac3-b2ee-69b2a3674851)
 
-##Reset Code
+## Reset Code
 ![ResetCode](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/8e52eb1e-ec63-4722-be2d-bfbe607cb946)
 
 ##Reset Password
@@ -42,10 +42,10 @@
 ## UpdateUserData
 ![updateUserData](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/d23e6f04-09a7-40c7-96d3-466ac245d86e)
 
-##UpdateUserPassword
+## UpdateUserPassword
 ![updateUserPassword](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/377fe6cb-7823-4782-bb0a-de4d69f45af3)
 
-##UserAddresses
+## UserAddresses
 ![userAddress](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/4547caf8-76fb-46dc-8de0-ed4f7fb74ae6)
 
 
