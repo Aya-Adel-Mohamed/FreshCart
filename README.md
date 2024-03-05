@@ -39,6 +39,18 @@
 ## Online Payment
 ![onlinepayment](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/1869ce86-a38f-4fd2-b1e2-45aeadb34a3f)
 
+## UpdateUserData
+![updateUserData](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/d23e6f04-09a7-40c7-96d3-466ac245d86e)
+
+##UpdateUserPassword
+![updateUserPassword](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/377fe6cb-7823-4782-bb0a-de4d69f45af3)
+
+##UserAddresses
+![userAddress](https://github.com/Aya-Adel-Mohamed/FreshCart/assets/115530179/4547caf8-76fb-46dc-8de0-ed4f7fb74ae6)
+
+
+
+
 
 
 
