@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Loading from '../Loading/Loading';
 import { Link } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
@@ -9,9 +9,10 @@ import { addToCart } from '../../apis/cart.api';
 import toast from 'react-hot-toast';
 import { addToWishList, getLoggedUserWishlist } from '../../apis/wishlist.api.js';
 const FeaturedProducts = ({ slug, brandSlug }) => {
+    let [page,setPage] = useState(1)
     const { isFetching, data: products } = useQuery({
-        queryKey: ["products"],
-        queryFn: ({ signal }) => getProducts(signal, slug, brandSlug),
+        queryKey: ["products",page],
+        queryFn: ({ signal }) => getProducts(signal, slug, brandSlug,page),
         refetchOnMount: true,
         refetchOnWindowFocus: false,
         onError: (err) => {
@@ -111,6 +112,14 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                                 )}
                             </>
                         }
+                    </div>
+                    
+                    <div className="pagination">
+                    <button onClick={()=>setPage(page-1)} disabled={page == 1?true:false} className='page-link btn'><i className="fa-solid fa-chevron-left"></i></button>
+                        <button onClick={()=>setPage(1)} className='page-link btn' aria-current="page">1</button>
+                        <button onClick={()=>setPage(2)} className='page-link btn'>2</button>
+                    <button onClick={()=>setPage(page+1)} disabled={page == 2?true:false} className='page-link btn'><i className='fa-solid fa-chevron-right'></i></button>
+
                     </div>
                 </>}
         </>
