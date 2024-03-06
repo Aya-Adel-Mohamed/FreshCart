@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getCategories } from '../../apis/categories.api.js';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-
-
 const Categories = () => {
-
     const { isFetching, data: categories } = useQuery({
         queryKey: ["categories"],
         queryFn: ({ signal }) => getCategories(signal),
@@ -19,7 +15,6 @@ const Categories = () => {
         },
         keepPreviousData: true
     })
-
     return (
         <>
         <HelmetProvider>
@@ -40,12 +35,10 @@ const Categories = () => {
                             </div>
                         )}
                     </div>
-
                 </>
             }
 </HelmetProvider>
         </>
     );
 }
-
 export default Categories;

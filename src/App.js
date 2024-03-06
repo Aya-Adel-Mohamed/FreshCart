@@ -25,7 +25,6 @@ import Orders from './Components/Orders/Orders.jsx';
 import CashCheckout from './Components/CashCheckout/CashCheckout.jsx';
 import Profile from './Components/Profile/Profile.jsx';
 import './App.css';
-
 function App() {
 const [userData,setUserData] = useState(null);
 function saveUserData (){
@@ -33,13 +32,11 @@ function saveUserData (){
   let decodedToken = jwtDecode(encodedToken);
   setUserData(decodedToken);
 }
-// console.log(userData);
 useEffect(()=>{
   if(localStorage.getItem("userToken")){
     saveUserData()
   }
 },[]);
-
 function ProtectedRoute(props){
   if(localStorage.getItem('userToken')){
     return props.children
@@ -47,13 +44,11 @@ function ProtectedRoute(props){
     return <Navigate to='/signin'/>
   }
 }
-
 function logOut(){
   localStorage.removeItem('userToken');
   setUserData(null);
   return <Navigate to='/signin'/>
 }
-
   let routers = createBrowserRouter([
     {path:'/',element:<MainLayout userData={userData} logOut={logOut}/>,children:[
       {index:true,element:<ProtectedRoute><Home/></ProtectedRoute>},
@@ -86,5 +81,4 @@ function logOut(){
     </>
   );
 }
-
 export default App;

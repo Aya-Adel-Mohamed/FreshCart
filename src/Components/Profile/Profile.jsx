@@ -3,13 +3,10 @@ import styles from './Profile.module.css'
 import UpdateUserData from "./UpdateUserData/UpdateUserData";
 import UpdateUserPassword from "./UpdateUserPassword/UpdateUserPassword";
 import UserAddresses from "./UserAddresses/UserAddresses";
-import { Link } from "react-router-dom";
 const Profile = () => {
-
   return (
     <>
       <section>
-        {/* <button className="text-main btn border"><Link to='/signin'>Save Changes</Link></button> */}
         <div className="row mt-5">
           <ul className="nav nav-tabs font" id="myTab" role="tablist">
             <li className="nav-item" role="presentation">
@@ -38,5 +35,4 @@ const Profile = () => {
     </>
   );
 }
-
 export default Profile;

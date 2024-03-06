@@ -24,7 +24,7 @@ const Cart = () => {
         keepPreviousData: true,
     });
 
-    // console.log(cartDetails);
+    
     const { isLoading: removeLoading, mutate: removeMutate } = useMutation({
         mutationFn: removeFromCart,
         onSuccess: () => {

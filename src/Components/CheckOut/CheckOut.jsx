@@ -6,8 +6,6 @@ import payment from '../../assets/backgroundSliderHome/payment.jpg'
 import { useMutation, useQuery } from "react-query";
 import { getLoggedUserCart, onlinePayment } from "../../apis/cart.api";
 import { useNavigate } from "react-router-dom";
-
-
 const CheckOut = () => {
     const [loading, setLoading] = useState(false)
     const { isFetching, data: cartDetails } = useQuery({
@@ -18,19 +16,15 @@ const CheckOut = () => {
         keepPreviousData: true,
     }); 
     let cartId = cartDetails.data._id;
-    // console.log(cartId);
     const { isLoading, mutate, error } = useMutation({
         mutationFn: onlinePayment,
         onSuccess: async (data, values) => {
-            // console.log(data.session.url);   
             window.location.href = `${data.session.url}`;
-            // console.log(data);
         },
     })
     let validationSchema = Yup.object({
         phone: Yup.string().required('Phone is Required').matches(/^01[0125][0-9]{8}$/, 'Phone must be a valid number'),
     })
-
     let formik = useFormik({
         initialValues:{
             details:'',
@@ -42,7 +36,6 @@ const CheckOut = () => {
             mutate({shippingAddress:values,cartId:cartId})
         }
     })
-
     return (  
         <>
         <div className="container my-5">
@@ -74,10 +67,8 @@ const CheckOut = () => {
                     <img src={payment} alt="" className="w-75" />
                 </div>
             </div>
-    
         </div>
         </>
     );
 }
- 
 export default CheckOut;

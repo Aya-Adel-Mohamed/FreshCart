@@ -1,8 +1,6 @@
 import React from "react";
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-
 const Products = () => {
     return (
         <>
@@ -15,5 +13,4 @@ const Products = () => {
         </>
     );
 }
-
 export default Products

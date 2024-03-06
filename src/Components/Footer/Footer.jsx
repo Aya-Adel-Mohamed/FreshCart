@@ -6,7 +6,6 @@ import masterCard from '../../assets/footer/masterCard.png';
 import paypal from '../../assets/footer/paypal.png';
 import appleStore from '../../assets/footer/appleStore.png';
 import googlePlay from '../../assets/footer/googlePlay.png';
-
 const Footer = () => {
     return (
         <>
@@ -35,15 +34,12 @@ const Footer = () => {
                             <h6 className={`${styles.paymentFont} me-3`}>Get deliveries with FreshCart</h6>
                             <img src={appleStore} alt="" className={styles.imgWidthFive} />
                             <img src={googlePlay} alt="" className={styles.imgWidthSix} />
-
                         </div>
                     </div>
                     <hr className={styles.lineColor} />
-
                 </div>
             </footer>
         </>
     );
 }
-
 export default Footer;

@@ -6,7 +6,6 @@ import payment from '../../assets/backgroundSliderHome/payment.jpg'
 import { useMutation, useQuery } from "react-query";
 import { CashOnDelivery, getLoggedUserCart } from "../../apis/cart.api";
 import { useNavigate } from "react-router-dom";
-
 const CashCheckout = () => {
     const [loading, setLoading] = useState(false);
     let navigate = useNavigate()
@@ -18,19 +17,15 @@ const CashCheckout = () => {
         keepPreviousData: true,
     }); 
     let cartId = cartDetails.data._id;
-    // console.log(cartId);
     const { isLoading, mutate, error } = useMutation({
         mutationFn: CashOnDelivery,
         onSuccess: async (data, values) => {
-            // console.log(data);   
          navigate('/allorders')
-
         },
     })
     let validationSchema = Yup.object({
         phone: Yup.string().required('Phone is Required').matches(/^01[0125][0-9]{8}$/, 'Phone must be a valid number'),
     })
-
     let formik = useFormik({
         initialValues:{
             details:'',
@@ -42,7 +37,6 @@ const CashCheckout = () => {
             mutate({shippingAddress:values,cartId:cartId})
         }
     })
-
     return (  
         <>
         <div className="container my-5">
@@ -74,10 +68,8 @@ const CashCheckout = () => {
                     <img src={payment} alt="" className="w-75" />
                 </div>
             </div>
-    
         </div>
         </>
     );
 }
- 
 export default CashCheckout;

@@ -2,8 +2,6 @@ import React from "react";
 import notFound from '../../assets/error.svg';
 import styles from './NotFound.module.css'
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-
 const NotFound = () => {
     return (
         <>
@@ -18,5 +16,4 @@ const NotFound = () => {
         </>
     );
 }
-
 export default NotFound;

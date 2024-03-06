@@ -8,11 +8,7 @@ import { addAddress } from '../../../apis/profile.api.js';
 import styles from './UserAddresses.module.css';
 import Loading from "../../Loading/Loading.jsx";
 import { queryClient } from "../../../apis/query.clint.js";
-
-
 const UserAddresses = () => {
-
-
     const { isFetching, data: address } = useQuery({
         queryKey: ["address"],
         queryFn: getUserAddress,
@@ -20,11 +16,9 @@ const UserAddresses = () => {
         refetchOnWindowFocus: false,
         keepPreviousData: true,
     });
-    // console.log(address);
     const { isLoading:addAddressLoading, mutate:addAddressMutate, error:addAddressError } = useMutation({
         mutationFn: addAddress,
         onSuccess: (data, values) => {
-            // console.log(data);
         },
         onSettled: () => {
             queryClient.invalidateQueries(["address"])
@@ -33,7 +27,6 @@ const UserAddresses = () => {
     const { isLoading:removeAddressLoading, mutate:removeAddressMutate, error:removeAddressError } = useMutation({
         mutationFn: removeAddress,
         onSuccess: (data, values) => {
-            // console.log(data);
         },
         onSettled: () => {
             queryClient.invalidateQueries(["address"])
@@ -42,7 +35,6 @@ const UserAddresses = () => {
     let validationSchema = Yup.object({
         phone: Yup.string().required('Phone is Required').matches(/^01[0125][0-9]{8}$/, 'Phone must be a valid number'),
     })
-
     let formik = useFormik({
         initialValues: {
             name: '',
@@ -57,8 +49,6 @@ const UserAddresses = () => {
     })
     return (
         <>
-
-        
             <div className="container my-5">
                 <div className="row justify-content-center align-items-center py-3">
                     <i className="fa-solid fa-location-dot text-center text-main fa-4x"></i>
@@ -86,21 +76,17 @@ const UserAddresses = () => {
                             <button disabled={!(formik.isValid && formik.dirty)} className="btn bg-main text-white mt-2 fs-6" type='submit'>Add Address</button>
                         }
                     </form>
-
                     <div className="d-flex mt-5 justify-content-center align-items-center flex-column ">
                         {address?.data?.map((ele, index) =>
                             <div className="w-50 bg-light font p-4 mt-3 border-radius">
                                 <div className="d-flex">
                                     <div className="col-lg-9">
-
                                         <h6 className="text-muted">Address #{index}</h6>
                                     </div>
                                     <div className="col-lg-3 text-end">
-                                       
                                         <button className="btn border-0 " onClick={()=>removeAddressMutate(ele._id)}>
                                         <i className="fa-solid fa-trash-can text-main "></i>
                                             <span className="ms-2">Remove</span>
-                                
                                         </button>
                                     </div>
                                 </div>
@@ -112,15 +98,9 @@ const UserAddresses = () => {
                             </div>
                         )}
                     </div>
-
-
                 </div>
-
             </div>
-        
-
         </>
     );
 }
-
 export default UserAddresses;

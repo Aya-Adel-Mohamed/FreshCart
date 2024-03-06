@@ -6,8 +6,6 @@ import styles from "./ForgetPassword.module.css";
 import { useMutation } from "react-query";
 import { sendEmail } from "../../apis/forgetPassword.api";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-
 const ForgetPassword = () => {
     let navigate = useNavigate()
     const { isLoading, mutate, error } = useMutation({
@@ -20,7 +18,6 @@ const ForgetPassword = () => {
     let validationSchema = yup.object({
         email: yup.string().email("wrong email").required("email is required"),
     });
-
     let formik = useFormik({
         initialValues: {
             email: "",
@@ -30,7 +27,6 @@ const ForgetPassword = () => {
             mutate(values)
         }
     });
-
     return (
         <>
         <HelmetProvider>
@@ -57,5 +53,4 @@ const ForgetPassword = () => {
         </>
     );
 }
- 
 export default ForgetPassword;

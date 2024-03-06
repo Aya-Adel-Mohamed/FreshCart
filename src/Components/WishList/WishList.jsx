@@ -7,14 +7,11 @@ import { queryClient } from "../../apis/query.clint";
 import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-
 const WishList = () => {
     const [loading, setloading] = useState(true)
     setTimeout(() => {
         setloading(false)
     }, 2000);
-
     const { isFetching, data: wishlistDetails } = useQuery({
         queryKey: ["wishlist"],
         queryFn: getLoggedUserWishlist,
@@ -22,7 +19,6 @@ const WishList = () => {
         refetchOnWindowFocus: true,
         keepPreviousData: true,
     });
-
     const { isLoading, mutate } = useMutation({
         mutationFn: removeFromWishList,
         onSuccess: () => {
@@ -36,7 +32,6 @@ const WishList = () => {
                 },
             })
         },
-
         onError: (err) => {
             toast.error('error removing product', {
                 position: 'bottom-left',
@@ -52,7 +47,6 @@ const WishList = () => {
             queryClient.invalidateQueries(["wishlist"])
         }
     })
-
     return (
         <>
         <HelmetProvider>
@@ -103,8 +97,6 @@ const WishList = () => {
             }
             </HelmetProvider>
         </>
-
     );
 }
-
 export default WishList;

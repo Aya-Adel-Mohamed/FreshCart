@@ -8,7 +8,6 @@ import slider3 from '../../assets/backgroundSliderHome/slider-image-1.jpeg';
 import banner1 from '../../assets/backgroundSliderHome/slider-2.jpeg';
 import banner3 from '../../assets/backgroundSliderHome/grocery-banner.png';
 import banner2 from '../../assets/backgroundSliderHome/grocery-banner-2.jpeg';
-
 const MainSlider = () => {
   var settings = {
     dots: true,
@@ -56,7 +55,6 @@ const MainSlider = () => {
               </div>
             </div>
           </div>
-
         </Slider>
       </div>
       <div className=" mediaSmall d-none mt-5">
@@ -65,25 +63,20 @@ const MainSlider = () => {
             <div className="col-12 ">
               <img src={slider1} alt="" className='w-105' />
             </div>
-
           </div>
           <div className="row d-flex">
             <div className="col-12 ">
               <img src={slider2} alt="" className='w-105' />
             </div>
-
           </div>
           <div className="row d-flex">
             <div className="col-12 ">
               <img src={slider3} alt="" className='w-105' />
             </div>
-
           </div>
-
         </Slider>
       </div>
     </>
   );
 }
-
 export default MainSlider;

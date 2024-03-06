@@ -5,9 +5,7 @@ import styles from './Navbar.module.css';
 import { useQuery } from 'react-query';
 import { getLoggedUserCart } from '../../apis/cart.api';
 import { getLoggedUserWishlist } from '../../apis/wishlist.api';
-
 const Navbar = ({ userData, logOut }) => {
-    // console.log(userData);
     const navLink = [
         { name: 'Home', link: '/' },
         { name: 'Products', link: 'products' },
@@ -58,20 +56,17 @@ const Navbar = ({ userData, logOut }) => {
                                 </> :
                                 <>
                                 <li className="nav-item d-flex align-items-center me-3 mt-2" >
-                                 
                                  <Link className={`${styles.navLinkFont} nav-link text-black position-relative`} to="cart">
                                     <i className={`fa-solid fa-cart-shopping fs-4 ${styles.iconFont}`}></i>
                                     <span className={styles.wishlistNo}>{cartDetails?cartDetails?.numOfCartItems:0}</span>
                                     </Link>
                                 </li>
                                     <li className="nav-item d-flex align-items-center me-3 mt-2" >
-                                 
                                      <Link className={`${styles.navLinkFont} nav-link text-black position-relative`} to="wishlist">
                                         <i className={`fa-solid fa-heart fs-4 ${styles.iconFont}`}></i>
                                         <span className={styles.wishlistNo}>{wishlistDetails?wishlistDetails?.count:0}</span>
                                         </Link>
                                     </li>
-                             
                                     <li className="nav-item d-flex align-items-center ms-2">
                                     <i className="fa-solid fa-user fs-4"></i>
                                         <Link className={`${styles.navLinkFont} nav-link`} to='profile'>{userData.name}</Link>
@@ -88,6 +83,5 @@ const Navbar = ({ userData, logOut }) => {
         </>
     );
 }
-
 export default Navbar;
 <></>

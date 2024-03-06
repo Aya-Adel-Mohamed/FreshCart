@@ -18,7 +18,6 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
         },
         keepPreviousData: true
     });
-
     const { isLoading: addToCartLoading, mutate: CartAdding } = useMutation({
         mutationFn: addToCart,
         onSuccess: () => {
@@ -113,7 +112,6 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                             </>
                         }
                     </div>
-
                 </>}
         </>
     );

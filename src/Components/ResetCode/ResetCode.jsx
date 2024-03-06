@@ -6,9 +6,6 @@ import styles from "./ResetCode.module.css";
 import { useMutation } from "react-query";
 import { sendCode } from "../../apis/restCode.api";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-
-
 export default function ResetCode() {
   let navigate = useNavigate();
   const { isLoading, mutate, error } = useMutation({
@@ -21,7 +18,6 @@ export default function ResetCode() {
   const validationSchema = yup.object({
     resetCode: yup.string().required("you can't change your password without reset code"),
   });
-
   let formik = useFormik({
     initialValues: {
       resetCode: "",
@@ -31,7 +27,6 @@ export default function ResetCode() {
       mutate(values)
     }
   });
-
   return (
     <>
     <HelmetProvider>
@@ -41,7 +36,6 @@ export default function ResetCode() {
       <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
         <h3 className={`${styles.ResetCodeTitle} mb-4`}>Reset Code</h3>
         {resError != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{resError}</div> : ""}
-
         <form onSubmit={formik.handleSubmit}>
           <div className="form-group mb-3">
             <label htmlFor="resetCode">please enter the reset code</label>

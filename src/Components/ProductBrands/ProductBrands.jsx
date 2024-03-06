@@ -2,10 +2,8 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
 const ProductBrands = () => {
     const params = useParams();
-
     return (
         <>
         <HelmetProvider>
@@ -17,5 +15,4 @@ const ProductBrands = () => {
         </>
     );
 }
-
 export default ProductBrands;

@@ -6,9 +6,6 @@ import styles from './ResetPassword.module.css';
 import { useMutation } from "react-query";
 import { changePassword } from "../../apis/resetPassword.api";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-
-
 export default function ResetPassword() {
   let navigate = useNavigate();
   const [passwordShown, setPasswordShown] = useState(false);
@@ -26,7 +23,6 @@ export default function ResetPassword() {
     email: yup.string().email("email not vaild").required("email is required"),
     newPassword: yup.string().matches(/[A-Z][a-z0-9]{4,20}$/, "not valid").required("password is required"),
   });
-
   let formik = useFormik({
     initialValues: {
       email: "",
@@ -37,7 +33,6 @@ export default function ResetPassword() {
       mutate(values)
     }
   });
-
   return (
     <>
     <HelmetProvider>
@@ -47,7 +42,6 @@ export default function ResetPassword() {
       <div className={`mx-auto py-4 mt-4 ${styles.ContainerWidth}`}>
         <h3 className={`${styles.ResetPasswordTitle} mb-4`}>Reset Password</h3>
         {resError != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{resError}</div> : ""}
-
         <form onSubmit={formik.handleSubmit}>
           <div className="form-group mb-3">
             <label htmlFor="resetCode">email</label>
@@ -62,7 +56,6 @@ export default function ResetPassword() {
               <input className='form-control position-relative' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.newPassword} type={passwordShown ? "text" : "password"} id="newPassword" />
               <i onClick={togglePasswordResetVisiblity} className={passwordShown ? `fa-solid fa-eye ${styles.eyeIcon}` : `fa-solid fa-eye-slash ${styles.eyeIcon}`}></i>
             </div>
-
             {formik.errors.newPassword && formik.touched.newPassword ?
               <div className={styles.errorAlert}>{formik.errors.newPassword}</div>
               : null}

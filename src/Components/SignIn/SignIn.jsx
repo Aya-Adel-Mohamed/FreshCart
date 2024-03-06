@@ -6,8 +6,6 @@ import styles from './SignIn.module.css';
 import { useMutation } from 'react-query';
 import { handleLogin } from '../../apis/signIn.api';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
-
 const SignIn = ({ saveUserData }) => {
     let navigate = useNavigate();
     const [passwordShown, setPasswordShown] = useState(false);
@@ -18,7 +16,6 @@ const SignIn = ({ saveUserData }) => {
         mutationFn: handleLogin,
         onSuccess: async (data, values) => {
             localStorage.setItem('userToken', data.token)
-            // console.log(data);
             saveUserData();
             navigate('/')
         },
@@ -28,7 +25,6 @@ const SignIn = ({ saveUserData }) => {
         email: Yup.string().required('Email is Required').email('Email is invalid'),
         password: Yup.string().required('Password is Required').matches(/[A-Z][a-z0-9]{4,20}$/, 'Password must start with uppercase ...'),
     })
-
     let formik = useFormik({
         initialValues: {
             email: '',
@@ -39,7 +35,6 @@ const SignIn = ({ saveUserData }) => {
             mutate(values)
         }
     });
-
     return (
         <>
         <HelmetProvider>
@@ -76,12 +71,10 @@ const SignIn = ({ saveUserData }) => {
                         :
                         <button disabled={!(formik.isValid && formik.dirty)} className='btn bg-main text-white d-flex ms-auto' type='submit'>Login</button>
                     }
-
                 </form>
             </div>
             </HelmetProvider>
         </>
     );
 }
-
 export default SignIn;
