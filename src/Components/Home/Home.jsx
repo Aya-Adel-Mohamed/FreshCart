@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import FeaturedProducts from '../FeaturedProducts/FeaturedProducts';
 import CategorySlider from '../CategorySlider/CategorySlider';
 import MainSlider from '../MainSlider/MainSlider';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 import Loading from '../Loading/Loading';
 import { useQuery } from 'react-query';
 import { getLoggedUserCart } from '../../apis/cart.api';
@@ -32,6 +33,7 @@ const Home = () => {
     });
     return (
         <>
+        <HelmetProvider>
             <Helmet>
                 <title>FreshCart | Home</title>
             </Helmet>
@@ -42,6 +44,7 @@ const Home = () => {
                     <FeaturedProducts />
                 </>
             }
+            </HelmetProvider>
         </>
     );
 }

@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import styles from "./ResetCode.module.css";
 import { useMutation } from "react-query";
 import { sendCode } from "../../apis/restCode.api";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 
 export default function ResetCode() {
@@ -33,6 +34,7 @@ export default function ResetCode() {
 
   return (
     <>
+    <HelmetProvider>
       <Helmet>
         <title>FreshCart | ResetCode</title>
       </Helmet>
@@ -53,6 +55,7 @@ export default function ResetCode() {
           }
         </form>
       </div>
+      </HelmetProvider>
     </>
   );
 }

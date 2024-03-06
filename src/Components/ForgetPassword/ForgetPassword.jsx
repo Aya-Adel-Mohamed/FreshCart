@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import styles from "./ForgetPassword.module.css";
 import { useMutation } from "react-query";
 import { sendEmail } from "../../apis/forgetPassword.api";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 const ForgetPassword = () => {
     let navigate = useNavigate()
@@ -32,6 +33,7 @@ const ForgetPassword = () => {
 
     return (
         <>
+        <HelmetProvider>
            <Helmet>
                 <title>FreshCart | ForgetPassword</title>
             </Helmet>
@@ -51,6 +53,7 @@ const ForgetPassword = () => {
                 }
                 </form>
             </div>
+            </HelmetProvider>
         </>
     );
 }

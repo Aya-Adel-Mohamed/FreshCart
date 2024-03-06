@@ -4,7 +4,7 @@ import { getUserOrders } from "../../apis/cart.api";
 import Loading from '../Loading/Loading.jsx';
 
 const Orders = ({userData}) => {
-    console.log(userData);
+    // console.log(userData);
 
     const { isFetching, data: orders } = useQuery({
         queryKey: ["orders", userData?.id],
@@ -13,7 +13,7 @@ const Orders = ({userData}) => {
         refetchOnWindowFocus: false,
         keepPreviousData: true,
     }); 
-    console.log(orders);
+    // console.log(orders);
 
     return (  
         <>

@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import styles from './ResetPassword.module.css';
 import { useMutation } from "react-query";
 import { changePassword } from "../../apis/resetPassword.api";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 
 export default function ResetPassword() {
@@ -39,6 +40,7 @@ export default function ResetPassword() {
 
   return (
     <>
+    <HelmetProvider>
       <Helmet>
         <title>FreshCart | ResetPassword</title>
       </Helmet>
@@ -72,6 +74,7 @@ export default function ResetPassword() {
           }
         </form>
       </div>
+      </HelmetProvider>
     </>
   );
 }

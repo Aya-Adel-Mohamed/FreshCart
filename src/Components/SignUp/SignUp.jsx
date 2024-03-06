@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import styles from './SignUp.module.css';
 import { useMutation } from 'react-query';
 import { handleRegister } from '../../apis/signUp.api';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 
 const SignUp = () => {
@@ -54,6 +55,7 @@ const SignUp = () => {
 
     return (
         <>
+        <HelmetProvider>
             <Helmet>
                 <title>FreshCart | signUp</title>
             </Helmet>
@@ -104,6 +106,7 @@ const SignUp = () => {
                     }
                 </form>
             </div>
+            </HelmetProvider>
         </>
     );
 }

@@ -6,7 +6,8 @@ import toast from "react-hot-toast";
 import { queryClient } from "../../apis/query.clint";
 import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 const WishList = () => {
     const [loading, setloading] = useState(true)
@@ -54,6 +55,7 @@ const WishList = () => {
 
     return (
         <>
+        <HelmetProvider>
             <Helmet>
                 <title>FreshCart | WishList</title>
             </Helmet>
@@ -99,6 +101,7 @@ const WishList = () => {
                     </div>
                 </div>
             }
+            </HelmetProvider>
         </>
 
     );

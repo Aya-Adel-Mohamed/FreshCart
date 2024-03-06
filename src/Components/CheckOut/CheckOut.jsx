@@ -18,13 +18,13 @@ const CheckOut = () => {
         keepPreviousData: true,
     }); 
     let cartId = cartDetails.data._id;
-    console.log(cartId);
+    // console.log(cartId);
     const { isLoading, mutate, error } = useMutation({
         mutationFn: onlinePayment,
         onSuccess: async (data, values) => {
-            console.log(data.session.url);   
+            // console.log(data.session.url);   
             window.location.href = `${data.session.url}`;
-            console.log(data);
+            // console.log(data);
         },
     })
     let validationSchema = Yup.object({

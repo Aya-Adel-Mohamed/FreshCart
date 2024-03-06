@@ -4,7 +4,8 @@ import Loading from '../Loading/Loading.jsx';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getCategories } from '../../apis/categories.api.js';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 
 const Categories = () => {
@@ -21,6 +22,7 @@ const Categories = () => {
 
     return (
         <>
+        <HelmetProvider>
             <Helmet>
                 <title>FreshCart | Categories</title>
             </Helmet>
@@ -41,7 +43,7 @@ const Categories = () => {
 
                 </>
             }
-
+</HelmetProvider>
         </>
     );
 }

@@ -7,7 +7,8 @@ import { getProductDetails } from '../../apis/productDetails.api';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './ProductDetails.module.css';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 import toast from 'react-hot-toast';
 import { addToCart } from '../../apis/cart.api';
 import { queryClient } from '../../apis/query.clint';
@@ -60,6 +61,7 @@ const ProductDetails = () => {
     
     return (
         <>
+        <HelmetProvider>
             {isFetching ? <Loading /> : <>
                 <div className="row my-5 justify-content-center">
                     <div className="col-lg-4">
@@ -114,6 +116,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </>}
+            </HelmetProvider>
         </>
     );
 

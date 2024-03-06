@@ -7,7 +7,8 @@ import { getLoggedUserCart, removeFromCart, updateCartProductQuantity } from "..
 import { queryClient } from "../../apis/query.clint.js";
 import ClearCart from "./ClearCart.jsx";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 const Cart = () => {
     const [loading, setloading] = useState(true)
@@ -23,7 +24,7 @@ const Cart = () => {
         keepPreviousData: true,
     });
 
-    console.log(cartDetails);
+    // console.log(cartDetails);
     const { isLoading: removeLoading, mutate: removeMutate } = useMutation({
         mutationFn: removeFromCart,
         onSuccess: () => {
@@ -64,6 +65,7 @@ const Cart = () => {
 
     return (
         <>
+        <HelmetProvider>
             <Helmet>
                 <title>FreshCart | Cart</title>
             </Helmet>
@@ -115,6 +117,7 @@ const Cart = () => {
                     </div>:''}
                 </>
             }
+            </HelmetProvider>
         </>
     );
 }

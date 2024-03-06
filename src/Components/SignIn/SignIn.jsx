@@ -5,7 +5,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './SignIn.module.css';
 import { useMutation } from 'react-query';
 import { handleLogin } from '../../apis/signIn.api';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 const SignIn = ({ saveUserData }) => {
     let navigate = useNavigate();
@@ -17,7 +18,7 @@ const SignIn = ({ saveUserData }) => {
         mutationFn: handleLogin,
         onSuccess: async (data, values) => {
             localStorage.setItem('userToken', data.token)
-            console.log(data);
+            // console.log(data);
             saveUserData();
             navigate('/')
         },
@@ -41,6 +42,7 @@ const SignIn = ({ saveUserData }) => {
 
     return (
         <>
+        <HelmetProvider>
         <Helmet>
             <title>FreshCart | signIn</title>
         </Helmet>
@@ -77,6 +79,7 @@ const SignIn = ({ saveUserData }) => {
 
                 </form>
             </div>
+            </HelmetProvider>
         </>
     );
 }

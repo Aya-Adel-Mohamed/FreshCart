@@ -4,7 +4,8 @@ import Loading from '../Loading/Loading.jsx';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getBrands } from '../../apis/brands.api.js';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 const Brands = () => {
     const { isFetching, data: brands } = useQuery({
@@ -19,6 +20,7 @@ const Brands = () => {
 
     return (
         <>
+        <HelmetProvider>
             <Helmet>
                 <title>FreshCart | Brands</title>
             </Helmet>
@@ -38,6 +40,7 @@ const Brands = () => {
                     </div>
                 </>
             }
+            </HelmetProvider>
         </>
     );
 }

@@ -20,11 +20,11 @@ const UserAddresses = () => {
         refetchOnWindowFocus: false,
         keepPreviousData: true,
     });
-    console.log(address);
+    // console.log(address);
     const { isLoading:addAddressLoading, mutate:addAddressMutate, error:addAddressError } = useMutation({
         mutationFn: addAddress,
         onSuccess: (data, values) => {
-            console.log(data);
+            // console.log(data);
         },
         onSettled: () => {
             queryClient.invalidateQueries(["address"])
@@ -33,7 +33,7 @@ const UserAddresses = () => {
     const { isLoading:removeAddressLoading, mutate:removeAddressMutate, error:removeAddressError } = useMutation({
         mutationFn: removeAddress,
         onSuccess: (data, values) => {
-            console.log(data);
+            // console.log(data);
         },
         onSettled: () => {
             queryClient.invalidateQueries(["address"])

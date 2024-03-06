@@ -33,7 +33,7 @@ function saveUserData (){
   let decodedToken = jwtDecode(encodedToken);
   setUserData(decodedToken);
 }
-console.log(userData);
+// console.log(userData);
 useEffect(()=>{
   if(localStorage.getItem("userToken")){
     saveUserData()

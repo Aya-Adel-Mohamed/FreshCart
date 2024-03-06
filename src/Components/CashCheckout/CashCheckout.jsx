@@ -18,11 +18,11 @@ const CashCheckout = () => {
         keepPreviousData: true,
     }); 
     let cartId = cartDetails.data._id;
-    console.log(cartId);
+    // console.log(cartId);
     const { isLoading, mutate, error } = useMutation({
         mutationFn: CashOnDelivery,
         onSuccess: async (data, values) => {
-            console.log(data);   
+            // console.log(data);   
          navigate('/allorders')
 
         },
