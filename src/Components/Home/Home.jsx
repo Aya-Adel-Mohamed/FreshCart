@@ -7,6 +7,7 @@ import Loading from '../Loading/Loading';
 import { useQuery } from 'react-query';
 import { getLoggedUserCart } from '../../apis/cart.api';
 import { getLoggedUserWishlist } from '../../apis/wishlist.api';
+import ScrollToTop from '../ReusableCompnents/ScrollToTop/ScrollToTop';
 const Home = () => {
     const [loading, setLoading] = useState(true)
     setTimeout(() => {
@@ -37,6 +38,7 @@ const Home = () => {
                     <MainSlider />
                     <CategorySlider />
                     <FeaturedProducts />
+                    <ScrollToTop/>
                 </>
             }
             </HelmetProvider>

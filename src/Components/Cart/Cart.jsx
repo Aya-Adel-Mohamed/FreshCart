@@ -8,6 +8,7 @@ import { queryClient } from "../../apis/query.clint.js";
 import ClearCart from "./ClearCart.jsx";
 import { Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ScrollToTop from "../ReusableCompnents/ScrollToTop/ScrollToTop.jsx";
 
 
 const Cart = () => {
@@ -117,6 +118,7 @@ const Cart = () => {
                     </div>:''}
                 </>
             }
+            <ScrollToTop/>
             </HelmetProvider>
         </>
     );

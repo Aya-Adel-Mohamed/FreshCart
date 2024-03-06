@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { getUserOrders } from "../../apis/cart.api";
 import Loading from '../Loading/Loading.jsx';
+import ScrollToTop from "../ReusableCompnents/ScrollToTop/ScrollToTop.jsx";
 const Orders = ({ userData }) => {
     const { isFetching, data: orders } = useQuery({
         queryKey: ["orders", userData?.id],
@@ -15,12 +16,12 @@ const Orders = ({ userData }) => {
             {isFetching ? <Loading /> :
                 <section className="my-5">
                     {orders?.map((order, index) =>
-                        <>
-                            <div className="bg-light p-4 mb-1 border-radius">
+                       
+                            <div className="bg-light p-4 mb-1 border-radius" key={index}>
                                 <span className="font text-muted">order #{order.id}</span>
                                 <hr className="mb-2" />
                                 {order.cartItems.map((detail, index) =>
-                                    <div className="orderDetails mb-1 d-flex gap flex-wrap">
+                                    <div className="orderDetails mb-1 d-flex gap flex-wrap" key={index}>
                                         <div className="col-md-1">
                                             <img src={detail.product.imageCover} className="w-100" alt="" />
                                         </div>
@@ -38,10 +39,11 @@ const Orders = ({ userData }) => {
                                 <hr className="mt-1" />
                                 <span className="font text-main"><span className="text-dark">payment Method Type:</span> {order.paymentMethodType}</span>
                             </div>
-                        </>
+                    
                     )}
                 </section>
             }
+            <ScrollToTop/>
         </>
     );
 }

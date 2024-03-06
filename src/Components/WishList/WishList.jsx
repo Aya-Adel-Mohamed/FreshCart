@@ -7,6 +7,7 @@ import { queryClient } from "../../apis/query.clint";
 import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ScrollToTop from "../ReusableCompnents/ScrollToTop/ScrollToTop";
 const WishList = () => {
     const [loading, setloading] = useState(true)
     setTimeout(() => {
@@ -95,6 +96,7 @@ const WishList = () => {
                     </div>
                 </div>
             }
+            <ScrollToTop/>
             </HelmetProvider>
         </>
     );

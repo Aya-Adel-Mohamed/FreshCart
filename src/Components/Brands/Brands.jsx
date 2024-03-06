@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getBrands } from '../../apis/brands.api.js';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ScrollToTop from '../ReusableCompnents/ScrollToTop/ScrollToTop.jsx';
 
 
 const Brands = () => {
@@ -40,6 +41,7 @@ const Brands = () => {
                     </div>
                 </>
             }
+            <ScrollToTop/>
             </HelmetProvider>
         </>
     );
