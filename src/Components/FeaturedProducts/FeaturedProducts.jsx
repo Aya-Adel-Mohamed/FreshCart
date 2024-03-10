@@ -101,7 +101,7 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                                                 <span className='font text-main font-sm pt-5'>{product.category.name}</span>
                                                 <h3 className='fw-bolder h6'>{product.title.split(' ').slice(0, 2).join(' ')}</h3>
                                                 <div className="d-flex justify-content-between align-items-center">
-                                                    <span className={styles.price}>{product.price} EGP</span>
+                                                    <span className={styles.price}>{product.priceAfterDiscount? product.priceAfterDiscount : product.price} EGP</span>
                                                     <span ><i className='fas fa-star rating-color'></i>{product.ratingsAverage}</span>
                                                 </div>
                                             </Link>
