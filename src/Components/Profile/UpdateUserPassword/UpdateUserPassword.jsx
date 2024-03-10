@@ -57,7 +57,7 @@ const UpdateUserPassword = () => {
                   {/* <i className="fa fa-user-alt fa-3x text-main"></i> */}
                   <i className="fa-solid fa-user-gear fa-4x text-main"></i>
                   </div>
-                  <form onSubmit={formik.handleSubmit}  className="w-50 mt-4">
+                  <form onSubmit={formik.handleSubmit}  className="w-50 mt-4 containerAddresses">
                     {/* {resError != null ? <div className={`alert alert-danger mt-2 ${styles.alert}`}>{resError}</div> : ''} */}
                     <div className="form-group mb-3">
                         <label htmlFor='currentPassword'>currentPassword</label>

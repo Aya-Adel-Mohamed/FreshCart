@@ -459,7 +459,7 @@ label {
 }
 
 @media screen and (max-width:770px) {
-  .btn-payment {
+  .btn-payment,.containerAddresses {
     width: 100% !important;
   }
 

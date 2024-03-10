@@ -52,7 +52,7 @@ const UserAddresses = () => {
             <div className="container my-5">
                 <div className="row justify-content-center align-items-center py-3">
                     <i className="fa-solid fa-location-dot text-center text-main fa-4x"></i>
-                    <form onSubmit={formik.handleSubmit} className="w-50">
+                    <form onSubmit={formik.handleSubmit} className="w-50 containerAddresses">
                         <div className="form-group mb-3">
                             <label htmlFor="name">Name</label>
                             <input type="text" className="form-control mb-2" name="name" id='name' value={formik.values.name} onChange={formik.handleChange} onBlur={formik.handleBlur} />
@@ -78,10 +78,10 @@ const UserAddresses = () => {
                     </form>
                     <div className="d-flex mt-5 justify-content-center align-items-center flex-column ">
                         {address?.data?.map((ele, index) =>
-                            <div className="w-50 bg-light font p-4 mt-3 border-radius">
-                                <div className="d-flex">
+                            <div className="w-50 containerAddresses bg-light font p-4 mt-3 border-radius" key={index}>
+                                <div className="d-flex align-items-center">
                                     <div className="col-lg-9">
-                                        <h6 className="text-muted">Address #{index}</h6>
+                                        <h6 className="text-muted mb-0">Address #{index}</h6>
                                     </div>
                                     <div className="col-lg-3 text-end">
                                         <button className="btn border-0 " onClick={()=>removeAddressMutate(ele._id)}>

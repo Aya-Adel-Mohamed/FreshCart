@@ -113,7 +113,9 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                             </>
                         }
                     </div>
-                    
+            
+                   
+      
                     <div className="pagination">
                     <button onClick={()=>setPage(page-1)} disabled={page == 1?true:false} className='page-link btn'><i className="fa-solid fa-chevron-left"></i></button>
                         <button onClick={()=>setPage(1)} className='page-link btn' aria-current="page">1</button>
@@ -121,6 +123,7 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                     <button onClick={()=>setPage(page+1)} disabled={page == 2?true:false} className='page-link btn'><i className='fa-solid fa-chevron-right'></i></button>
 
                     </div>
+            
                 </>}
         </>
     );
