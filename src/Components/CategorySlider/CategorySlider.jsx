@@ -6,6 +6,7 @@ import styles from './CategorySlider.module.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from 'react-router-dom';
+
 const CategorySlider = () => {
   const { data: categories } = useQuery({
     queryKey: ["categoriesSlider"],
@@ -16,6 +17,7 @@ const CategorySlider = () => {
     },
     keepPreviousData: true
   })
+
   var settings = {
     infinite: true,
     slidesToShow: 7,
@@ -75,6 +77,7 @@ const CategorySlider = () => {
       },
     ]
   };
+
   return (
     <>
       <h4 className='mt-5 fw-semibold mb-3 pt-5'>Shop Popular Categories</h4>

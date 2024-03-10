@@ -6,7 +6,6 @@ import { useFormik } from "formik";
 import { useMutation } from 'react-query';
 import { addAddress } from '../../../apis/profile.api.js';
 import styles from './UserAddresses.module.css';
-import Loading from "../../Loading/Loading.jsx";
 import { queryClient } from "../../../apis/query.clint.js";
 const UserAddresses = () => {
     const { isFetching, data: address } = useQuery({

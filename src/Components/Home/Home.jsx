@@ -8,11 +8,14 @@ import { useQuery } from 'react-query';
 import { getLoggedUserCart } from '../../apis/cart.api';
 import { getLoggedUserWishlist } from '../../apis/wishlist.api';
 import ScrollToTop from '../ReusableCompnents/ScrollToTop/ScrollToTop';
+
 const Home = () => {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+
     setTimeout(() => {
         setLoading(false)
     }, 2000);
+
     const { data: cartDetails } = useQuery({
         queryKey: ["cart"],
         queryFn: getLoggedUserCart,
@@ -20,6 +23,7 @@ const Home = () => {
         refetchOnWindowFocus: true,
         keepPreviousData: true,
     });
+
     const { data: wishlistDetails } = useQuery({
         queryKey: ["wishlist"],
         queryFn: getLoggedUserWishlist,
@@ -29,18 +33,18 @@ const Home = () => {
     });
     return (
         <>
-        <HelmetProvider>
-            <Helmet>
-                <title>FreshCart | Home</title>
-            </Helmet>
-            {loading ? <Loading /> :
-                <>
-                    <MainSlider />
-                    <CategorySlider />
-                    <FeaturedProducts />
-                    <ScrollToTop/>
-                </>
-            }
+            <HelmetProvider>
+                <Helmet>
+                    <title>FreshCart | Home</title>
+                </Helmet>
+                {loading ? <Loading /> :
+                    <>
+                        <MainSlider />
+                        <CategorySlider />
+                        <FeaturedProducts />
+                        <ScrollToTop />
+                    </>
+                }
             </HelmetProvider>
         </>
     );

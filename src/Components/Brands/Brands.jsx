@@ -21,27 +21,27 @@ const Brands = () => {
 
     return (
         <>
-        <HelmetProvider>
-            <Helmet>
-                <title>FreshCart | Brands</title>
-            </Helmet>
-            {isFetching ? <Loading /> :
-                <>
-                    <div className="row my-5">
-                        {brands?.map((brand, index) =>
-                            <div className={`col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-5 ${styles.container}`} key={index}>
-                                <Link to={`productbrands/${brand.slug}`}>
-                                    <div className={`${styles.brandContainer}`}>
-                                        <img src={brand.image} alt="" className='w-100' />
-                                        <span>{brand.name}</span>
-                                    </div>
-                                </Link>
-                            </div>
-                        )}
-                    </div>
-                </>
-            }
-            <ScrollToTop/>
+            <HelmetProvider>
+                <Helmet>
+                    <title>FreshCart | Brands</title>
+                </Helmet>
+                {isFetching ? <Loading /> :
+                    <>
+                        <div className="row my-5">
+                            {brands?.map((brand, index) =>
+                                <div className={`col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-5 ${styles.container}`} key={index}>
+                                    <Link to={`productbrands/${brand.slug}`}>
+                                        <div className={`${styles.brandContainer}`}>
+                                            <img src={brand.image} alt="" className='w-100' />
+                                            <span>{brand.name}</span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+                    </>
+                }
+                <ScrollToTop />
             </HelmetProvider>
         </>
     );

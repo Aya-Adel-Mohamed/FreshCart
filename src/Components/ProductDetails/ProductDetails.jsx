@@ -1,16 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Slider from "react-slick";
-import Loading from '../Loading/Loading';
 import { useMutation, useQuery } from 'react-query';
 import { getProductDetails } from '../../apis/productDetails.api';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import styles from './ProductDetails.module.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import toast from 'react-hot-toast';
 import { addToCart } from '../../apis/cart.api';
+import toast from 'react-hot-toast';
+import Slider from "react-slick";
+import Loading from '../Loading/Loading';
 import { queryClient } from '../../apis/query.clint';
+import styles from './ProductDetails.module.css';
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+
 const ProductDetails = () => {
     let params = useParams();
     var settings = {

@@ -8,7 +8,6 @@ export const getLoggedUserCart = async () => {
         });
         return data
     } catch (error) {
-  
     }
 }
 
@@ -73,6 +72,5 @@ export const getUserOrders = async (userId) => {
         const { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${userId}`);
         return data
     } catch (error) {
-  
     }
 }

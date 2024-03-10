@@ -6,11 +6,11 @@ const ProductBrands = () => {
     const params = useParams();
     return (
         <>
-        <HelmetProvider>
-            <Helmet>
-                <title>{`FreshCart | ${params.brandSlug}`}</title>
-            </Helmet>
-            <FeaturedProducts brandSlug={params.brandSlug} />
+            <HelmetProvider>
+                <Helmet>
+                    <title>{`FreshCart | ${params.brandSlug}`}</title>
+                </Helmet>
+                <FeaturedProducts brandSlug={params.brandSlug} />
             </HelmetProvider>
         </>
     );

@@ -8,11 +8,12 @@ import { queryClient } from '../../apis/query.clint.js';
 import { addToCart } from '../../apis/cart.api';
 import toast from 'react-hot-toast';
 import { addToWishList, getLoggedUserWishlist } from '../../apis/wishlist.api.js';
+
 const FeaturedProducts = ({ slug, brandSlug }) => {
-    let [page,setPage] = useState(1)
+    let [page, setPage] = useState(1)
     const { isFetching, data: products } = useQuery({
-        queryKey: ["products",page],
-        queryFn: ({ signal }) => getProducts(signal, slug, brandSlug,page),
+        queryKey: ["products", page],
+        queryFn: ({ signal }) => getProducts(signal, slug, brandSlug, page),
         refetchOnMount: true,
         refetchOnWindowFocus: false,
         onError: (err) => {
@@ -101,7 +102,7 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                                                 <span className='font text-main font-sm pt-5'>{product.category.name}</span>
                                                 <h3 className='fw-bolder h6'>{product.title.split(' ').slice(0, 2).join(' ')}</h3>
                                                 <div className="d-flex justify-content-between align-items-center">
-                                                    <span className={styles.price}>{product.priceAfterDiscount? product.priceAfterDiscount : product.price} EGP</span>
+                                                    <span className={styles.price}>{product.priceAfterDiscount ? product.priceAfterDiscount : product.price} EGP</span>
                                                     <span ><i className='fas fa-star rating-color'></i>{product.ratingsAverage}</span>
                                                 </div>
                                             </Link>
@@ -113,17 +114,17 @@ const FeaturedProducts = ({ slug, brandSlug }) => {
                             </>
                         }
                     </div>
-            
-                   
-      
+
+
+
                     <div className="pagination">
-                    <button onClick={()=>setPage(page-1)} disabled={page == 1?true:false} className='page-link btn'><i className="fa-solid fa-chevron-left"></i></button>
-                        <button onClick={()=>setPage(1)} className='page-link btn' aria-current="page">1</button>
-                        <button onClick={()=>setPage(2)} className='page-link btn'>2</button>
-                    <button onClick={()=>setPage(page+1)} disabled={page == 2?true:false} className='page-link btn'><i className='fa-solid fa-chevron-right'></i></button>
+                        <button onClick={() => setPage(page - 1)} disabled={page == 1 ? true : false} className='page-link btn'><i className="fa-solid fa-chevron-left"></i></button>
+                        <button onClick={() => setPage(1)} className='page-link btn' aria-current="page">1</button>
+                        <button onClick={() => setPage(2)} className='page-link btn'>2</button>
+                        <button onClick={() => setPage(page + 1)} disabled={page == 2 ? true : false} className='page-link btn'><i className='fa-solid fa-chevron-right'></i></button>
 
                     </div>
-            
+
                 </>}
         </>
     );

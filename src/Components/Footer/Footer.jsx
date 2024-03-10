@@ -6,6 +6,7 @@ import masterCard from '../../assets/footer/masterCard.png';
 import paypal from '../../assets/footer/paypal.png';
 import appleStore from '../../assets/footer/appleStore.png';
 import googlePlay from '../../assets/footer/googlePlay.png';
+
 const Footer = () => {
     return (
         <>
