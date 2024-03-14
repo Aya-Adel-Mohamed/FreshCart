@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react';
-import { createBrowserRouter,Navigate,RouterProvider } from 'react-router-dom';
+import { createHashRouter,Navigate,RouterProvider } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './apis/query.clint.js';
 import { jwtDecode } from 'jwt-decode';
@@ -49,7 +49,7 @@ function logOut(){
   setUserData(null);
   return <Navigate to='/signin'/>
 }
-  let routers = createBrowserRouter([
+  let routers = createHashRouter([
     {path:'/',element:<MainLayout userData={userData} logOut={logOut}/>,children:[
       {index:true,element:<ProtectedRoute><Home/></ProtectedRoute>},
       {path:'products',element:<ProtectedRoute><Products/></ProtectedRoute>},
